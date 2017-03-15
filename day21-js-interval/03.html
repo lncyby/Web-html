@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div">测试nodeName</div>
+    <script>
+    var str = "hello world";
+    var newStr = str.slice(0);
+    // newStr[0] = 'H';//字符串是不可变的。
+
+    newStr = "hehe";
+
+    console.log("str =", str);
+    console.log("newStr =", newStr);
+
+
+
+
+    str = "abcdefghij";
+    console.log(str.substr(-20, 3)); //越界时，最后从边界开始
+    console.log(str.substr(0, 30)); //越界时，最后从边界计算
+
+
+    var div = document.getElementById("div");
+    console.log(div.nodeName); // DIV
+
+
+
+    var s = "hello world google";
+    var a = s.split(" ");
+    console.log(a);
+
+    s = "hello,world,name,age";
+    a = s.split(",", 3);//最多包含3个片段
+    console.log(a);
+
+    </script>
+</body>
+
+</html>
