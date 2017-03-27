@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>曲线图</title>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script type="text/javascript">
+        var can = document.getElementById("canvas")
+        can.width = 690;
+        can.height = 690;
+        can.style.border = "2px solid black";
+
+        var ctx = can.getContext("2d");
+
+        var one = 0;
+        while (one < 690) {
+            ctx.beginPath();
+            ctx.strokeStyle = "black";
+            ctx.moveTo(one, 0);
+            ctx.lineTo(one, 690);
+            one = one + 30;
+            ctx.stroke();
+        }
+        var two = 0;
+        while (two < 690) {
+            ctx.beginPath();
+            ctx.strokeStyle = "black";
+            ctx.moveTo(0, two);
+            ctx.lineTo(690, two);
+            two = two + 30;
+            ctx.stroke();
+        }
+
+        ctx.beginPath();
+        ctx.strokeStyle = "red";
+        ctx.lineWidth = 6;
+        ctx.moveTo(30, 30);
+        ctx.lineTo(30, 660);
+        ctx.stroke();
+        ctx.moveTo(30, 30);
+        ctx.lineTo(15, 45);
+        ctx.stroke();
+        ctx.moveTo(30, 30);
+        ctx.lineTo(45, 45);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.strokeStyle = "blue";
+        ctx.lineWidth = 6;
+        ctx.moveTo(660, 660);
+        ctx.lineTo(30, 660);
+        ctx.stroke();
+        ctx.moveTo(660, 660);
+        ctx.lineTo(645, 645);
+        ctx.stroke();
+        ctx.moveTo(660, 660);
+        ctx.lineTo(645, 675);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.strokeStyle = "purple";
+        ctx.lineWidth = 6;
+        ctx.moveTo(30, 660);
+        ctx.lineTo(90, 450);
+        ctx.stroke();
+        ctx.moveTo(90, 450);
+        ctx.lineTo(210, 330);
+        ctx.stroke();
+        ctx.moveTo(210, 330);
+        ctx.lineTo(270, 30);
+        ctx.stroke();
+        ctx.moveTo(270, 30);
+        ctx.lineTo(330, 270);
+        ctx.stroke();
+        ctx.moveTo(330, 270);
+        ctx.lineTo(540, 90);
+        ctx.stroke();
+        ctx.moveTo(540, 90);
+        ctx.lineTo(600, 60);
+        ctx.stroke();
+        ctx.moveTo(600, 60);
+        ctx.lineTo(660, 300);
+        ctx.stroke();
+    </script>
+</body>
+
+</html>

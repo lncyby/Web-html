@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>百分比</title>
+</head>
+
+<body>
+    <canvas id="canvas">当前浏览器不支持canvas</canvas>
+    <script type="text/javascript">
+        //1. 获得DOM 对象
+        var can = document.querySelector("#canvas");
+        can.width = 600;
+        can.height = 600;
+        can.style.border = "2px solid purple";
+
+        var cxt = can.getContext("2d");
+
+        cxt.beginPath();
+        cxt.fillStyle = "blue";
+        cxt.moveTo(300, 300);
+        cxt.arc(300, 300, 200, 0 * Math.PI / 180, 144 * Math.PI / 180, false); //顺时针
+        cxt.fillText("40%", 400, 500);
+        cxt.fill();
+        cxt.beginPath();
+        cxt.fillStyle = "red";
+        cxt.moveTo(300, 300);
+        cxt.arc(300, 300, 200, 144 * Math.PI / 180, 252 * Math.PI / 180, false); //顺时针
+        cxt.fillText("30%", 80, 200);
+        cxt.fill();
+        cxt.beginPath();
+        cxt.fillStyle = "purple";
+        cxt.moveTo(300, 300);
+        cxt.arc(300, 300, 200, 252 * Math.PI / 180, 329 * Math.PI / 180, false); //顺时针
+        cxt.fillText("20%", 400, 100);
+        cxt.fill();
+        cxt.beginPath();
+        cxt.fillStyle = "pink";
+        cxt.moveTo(300, 300);
+        cxt.arc(300, 300, 200, 329 * Math.PI / 180, 0 * Math.PI / 180, false); //顺时针
+        cxt.fillText("20%", 520, 250);
+        cxt.fill();
+    </script>
+</body>
+
+</html>

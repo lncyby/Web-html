@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>奔跑的小人</title>
+    <style media="screen">
+        button {
+            width: 123px;
+            height: 50px;
+            background: purple;
+            color: white;
+            font-size: 24px;
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <br>
+    <button id="btn1">前</button>
+    <button id="btn2">左</button>
+    <button id="btn3">右</button>
+    <button id="btn4">后</button>
+    <script type="text/javascript">
+        var can = document.querySelector("#canvas");
+        var btn1 = document.querySelector("#btn1");
+        var btn2 = document.querySelector("#btn2");
+        var btn3 = document.querySelector("#btn3");
+        var btn4 = document.querySelector("#btn4");
+        can.width = 500;
+        can.height = 500;
+        can.style.border = "4px solid purple";
+        var ctx = can.getContext("2d");
+        var img = new Image(500, 200);
+
+        var start = 0;
+        var timer = null;
+
+        var size = 0;
+        window.onload = function() {
+            ctx.drawImage(img, 0, 0, 40, 65, 220, 200, 40, 65);
+            btn1.onclick = function() {
+                clearTimeout(timer);
+                timer = setInterval(function() {
+                    if (size < 160) {
+                        ctx.clearRect(220, 200, 40, 65);
+                        ctx.drawImage(img, size, 0, 40, 65, 220, 200, 40, 65);
+                        size += 40;
+                    } else {
+                        size = 0;
+                    }
+                }, 100)
+            }
+            btn2.onclick = function() {
+                // img.onload = function() {
+                clearTimeout(timer);
+                timer = setInterval(function() {
+                    if (size < 160) {
+                        ctx.clearRect(220, 200, 40, 65);
+                        ctx.drawImage(img, size, 65, 40, 65, 220, 200, 40, 65);
+                        size += 40;
+                    } else {
+                        size = 0;
+                    }
+                }, 100)
+            }
+            btn3.onclick = function() {
+                // img.onload = function() {
+                clearTimeout(timer);
+                timer = setInterval(function() {
+                    if (size < 160) {
+                        ctx.clearRect(220, 200, 40, 65);
+                        ctx.drawImage(img, size, 130, 40, 65, 220, 200, 40, 65);
+                        size += 40;
+                    } else {
+                        size = 0;
+                    }
+
+                }, 100)
+            }
+            btn4.onclick = function() {
+                // img.onload = function() {
+                clearTimeout(timer);
+                timer = setInterval(function() {
+                    if (size < 160) {
+                        ctx.clearRect(220, 200, 40, 65);
+                        ctx.drawImage(img, size, 195, 40, 65, 220, 200, 40, 65);
+                        size += 40;
+                    } else {
+                        size = 0;
+                    }
+
+                }, 100)
+            }
+            //将绘制的代码填写到onload方法中
+        }
+
+        //设置图片的资源
+        img.src = "./image/1.png";
+        start = Date.now();
+    </script>
+</body>
+
+</html>

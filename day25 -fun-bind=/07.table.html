@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>函数节流</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 2000px;
+            background: lightblue;
+        }
+
+        table {
+            width: 500px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        tr,
+        td,
+        th {
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="table"></table>
+    <script src="./js/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript">
+        $("body").click(function() {
+            console.log("click ...");
+        });
+
+
+        /*    //生成100000行数据
+            for (var i = 0; i < 10000; i++) {
+            	$("<tr><td>lisi</td><td>10</td><td>1001</td></tr>").appendTo($("#table"));
+            }
+
+        */
+
+        var timer = null;
+        var num = 0;
+
+        function fun() {
+            $("<tr><td>lisi</td><td>10</td><td>1001</td></tr>").appendTo($("#table"));
+
+            num++;
+            if (num == 10000) {
+                clearTimeout(timer);
+                return;
+            }
+
+            //实现了函数节流，可以保证在插入数据的同时，还可以响应点击事件,
+            //间隔事件可以设置的额很短
+            timer = setTimeout(fun, 1);
+        }
+
+        fun();
+
+        // 函数节流背后的基本思想是指，某些代码不可以在没有间断的情况连续重复执行
+
+        //创建一个定时器，在指定的时间间隔之后运行代码。调用该函数时，它会清除前一次的定时器并设置另一个。
+
+        // 当触发一个时间时，先setTimout让这个事件延迟一会再执行，
+        // 如果在这个时间间隔内又触发了事件，那我们就clear掉原来的定时器，
+        // 再setTimeout一个新的定时器延迟一会执行，就这样。
+        // 代码实现
+        // function throttle(method, context) {
+        //     clearTimeout(methor.tId);
+        //     method.tId = setTimeout(function() {
+        //             method.call(context);
+        //         },100);
+        // }
+    </script>
+</body>
+
+</html>

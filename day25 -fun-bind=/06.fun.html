@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>高阶函数(将函数作为参数，并且返回一个函数)</title>
+</head>
+
+<body>
+
+
+	<script type="text/javascript">
+		//判断是否是偶数
+		function even(num) {
+			return (num % 2 == 0) ? true : false;
+		}
+		console.log(even(20));
+		console.log(even(21));
+
+		/* apply() 方法在指定 this 值和参数
+		（参数以数组或类数组对象的形式存在）的情况下调用某个函数。
+		语法：
+		fun.apply(thisArg[, argsArray])
+
+		thisArg : 在 fun 函数运行时指定的 this 值。
+
+		argumentsList : 一个数组或者类数组对象，其中的数组
+										元素将作为单独的参数传给 fun 函数
+		 */
+		//arguments 是一个类似数组的对象, 对应于传递给函数的参数。
+		// arguments对象是所有函数中可用的局部变量
+		//not函数用于将原函数的结果给取反
+		function not(fn) {
+			return function() { // console.log(odd(3)); 3是传个到这个函数的
+				var ret = fn.apply(null, arguments);
+				return !ret;
+			};
+		}
+
+		var odd = not(even);
+		console.log(odd(3)); //true
+		console.log(odd(4)); //false
+		/*
+		  function sum(a, b){
+			return a + b;
+		  }
+
+		  function square(num){
+		     return num * num;
+		  }
+		  题目要求：实现一个高阶函数，该函数返回一个可以计算(和的平方)的函数？？
+		*/
+		/*******************************下面计算一个加法的平方*******************/
+		function sum(a, b) {
+			return a + b;
+		}
+		// console.log(sum(1, 2));
+
+		function square(num) {
+			return num * num;
+		}
+		// console.log(square(3));
+		function s(fn) {
+			return function() {
+				// null 不换执行环境
+				var ret = fn.apply(null, arguments);
+				//  下面注释两行与上面两行效果相同
+				// return function() {
+				// var ret = fn.apply(null, arguments);
+				return square(ret);
+			}
+		}
+		var odd = s(sum);
+		console.log(odd(3, 2))
+	</script>
+
+</body>
+
+</html>
