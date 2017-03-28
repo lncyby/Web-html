@@ -14,9 +14,10 @@
 	<script type="text/javascript">
 		
 		var f = document.querySelector("#f");
+		//setAttribute() 方法添加指定的属性，并为其赋指定的值
 		f.setAttribute("name", "测试");
 		console.log(f.getAttribute("name"));
-
+		//HTMLElement.dataset 属性允许我们访问所有在元素上自定义的data属性 (这种属性一般以data-开头）
 		console.log(f.dataset.name);
 		console.log(f.dataset.score);
 		f.dataset.name = "zhaosi";
