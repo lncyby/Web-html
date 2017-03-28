@@ -24,9 +24,11 @@
 		
 		var con = document.querySelector(".con");
 		con.className = "con con1";
-
+		//增加类名		
 		con.classList.add("one", "two");
+		//删除类名		
 		con.classList.remove("one", "two");
+		//有就删除没有就增加类名		
 		con.classList.toggle("first");
 		con.classList.toggle("first");
 		console.log(con.classList.contains("con"));//true, false
