@@ -25,8 +25,9 @@
     var box = document.getElementById("box");
     var btn = document.getElementById("fullscreen");
 
-
+       //兼容浏览器
     function fullScreen(elem) {
+        //调用其 requestFullscreen() 方法以全屏模式呈现。
         if (elem.requestFullScreen) {
             console.log("11");
             elem.requestFullScreen();
@@ -43,6 +44,7 @@
 
 
     function cancelScreen(elem) {
+        //取消全屏时直接调用document.cancelFullScreen()方法即可
         if (document.cancelFullScreen) {
             document.cancelFullScreen();
         } else if (document.mozCancelFullScreen) {
@@ -63,12 +65,14 @@
     document.addEventListener("keydown", function(event) {
         console.log(event.keyCode);
         if (event.keyCode == 13) {
+            //符合三种浏览器中的一种就能运行
             if (document.fullscreenElement || document.mozFullscreenElement ||
                 document.webkitFullscreenElement) {
                 //取消全屏
                 cancelScreen(box);
 
             } else {
+                //全屏
                 fullScreen(box);
             }
         }
