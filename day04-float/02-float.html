@@ -1,31 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>初识浮动</title>
     <style>
-      .one, .two {
-        width: 300px;
-        height: 300px;
-      }
+        /*元素的浮动是指设置了浮动属性的元素会脱离标准文档流的控制，移动到其父元素中指定位置的过程。
+    比喻：游泳池的池底以及水面游泳池的池底相当于标准流（文档流），水面相当于浮动的元素所有“层”。
+    水面的元素会遮挡水中的元素)。*/
+        /*浮动特点
+    1.浮动脱离标准流，不占位置，会影响标准流。浮动只有左右浮动。
+    2.浮动的元素A排列位置，跟上一个元素（块级）有关系。如果上一个元素有浮动，则A元素顶部会和上一个元素
+    的顶部对齐；如果上一个元素是标准流，则A元素的顶部会和上一个元素的底部对齐。
+　　3.一个父盒子里面的子盒子，如果其中一个子级有浮动的，则其他子级都需要浮动。这样才能一行对齐显示。
+　　4.浮动根据元素书写的位置来显示相应的浮动。
+　　5.元素添加浮动后，元素会具有行内块元素的特性。元素的大小完全取决于定义的大小或者默认的内容多少。
+　　6.如果一个div没有设置高，这个div中的所有的元素都浮动了，那么这个div的高是0。*/
 
-      .one {
-        background: yellow;
-        float:left;
-      }
+        .one,
+        .two {
+            width: 300px;
+            height: 300px;
+        }
 
-      .two {
-        background: red;
-        width: 500px;
-        /*float: left;*/
-      }
+        .one {
+            background: yellow;
+            float: left;
+        }
+
+        .two {
+            background: red;
+            width: 500px;
+            /*float: left;*/
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
 
     <div class="one"></div>
     <div class="two"></div>
     <!-- <p>司空见惯看到就看过空间大客户空间大客户深加工结果空间大客户大家会看见好看交换空间和扩大化</p> -->
 
-  </body>
+</body>
+
 </html>

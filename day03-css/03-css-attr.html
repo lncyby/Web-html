@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>css三大特性</title>
     <style>
+        /* 继承  优先级  层叠*/
+        /*基本公式： id > class > 标签 > 继承 > 浏览器的默认属性*/
 
-    /* 继承  优先级  层叠*/
-      div {
-        color: red;
-      }
-      p {
-        color: yellow;
-      }
+        div {
+            color: red;
+        }
 
-      p {
-        font-size: 20px;
-      }
+        p {
+            color: yellow;
+        }
+
+        p {
+            font-size: 20px;
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
 
     <div>
-      <p>这是div中的p标签</p>
+        <p>这是div中的p标签</p>
     </div>
 
-  </body>
+</body>
+
 </html>

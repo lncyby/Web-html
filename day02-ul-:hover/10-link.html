@@ -1,41 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>伪类选择器</title>
     <style>
+        /* 为了兼容其他浏览器，link visited hover active的顺序固定的*/
+        /*默认修改为red*/
+        /*link:标签原本的样式(如果在这个属性中设置样式,优先级要高于标签选择器)*/
 
-    /* 为了兼容其他浏览器，link visited hover active的顺序固定的*/
-    /*默认修改为red*/
-      a:link {
-        color: red;
-      }
+        a:link {
+            color: red;
+        }
+        /*visited标签被访问以后的样子*/
+        /*访问之后的样式*/
 
-      /*访问之后的样式*/
-      a:visited {
-        color: yellow;
-      }
+        a:visited {
+            color: yellow;
+        }
+        /*hover鼠标悬停在标签上会触发的样式*/
+        /*鼠标放上去的样式*/
 
-     /*鼠标放上去的样式*/
-      a:hover {
-        color: blue;
-      }
+        a:hover {
+            color: blue;
+        }
+        /*active当点击标签是的样式*/
+        /*鼠标按下去的样式*/
 
-      /*鼠标按下去的样式*/
-      a:active {
-        color: green;
-      }
+        a:active {
+            color: green;
+        }
 
-      div:hover {
-        color: red;
-      }
+        div:hover {
+            color: red;
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
 
     <a href="https://www.baidu.com">百度</a>
 
     <div>这是div元素</div>
 
-  </body>
+</body>
+
 </html>

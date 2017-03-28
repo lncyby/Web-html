@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>css的引用方式</title>
+    <!-- 外部样式:将css编写为单独文件,需要在head中引用 -->
     <link rel="stylesheet" href="./test.css">
     <style>
-      .p2 {
-        color: yellow;
-      }
+        .p2 {
+            color: yellow;
+        }
     </style>
-  </head>
-  <body>
+</head>
 
+<body>
+
+    <!-- 行内样式 -->
     <p style="color:red;">这是p</p>
+    <!-- 嵌套样式 -->
     <p class="p2">第二个p</p>
 
     <h1>h1标签</h1>
 
-  </body>
+</body>
+
 </html>

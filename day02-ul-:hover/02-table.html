@@ -1,54 +1,70 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>表格</title>
-  </head>
-  <body>
+</head>
+
+<body>
 
     <!-- 创建一个表格  -->
-    <table width="200" height="150"  border="1" cellspacing="0" cellpadding="5">
-      <caption><h3>个人信息</h3></caption>
+    <!-- width 设置表格宽度
+        height 设置表格高度
+        border 设置表格边框 默认'0'无边框
+        cellspacing 设置单元格与单元格边框之间的空白间距
+        cellpadding 设置单元格内容与单元格边框之间的空白间距-->
+    <table width="200" height="150" border="1" cellspacing="0" cellpadding="5">
+        <!-- caption 标签必须紧随 table 标签之后，每个表格只能定义一个标题，这个标题会被居中与表格之上 -->
 
-      <thead>
-        <tr>
-          <th>111</th>
-          <th>111</th>
-          <th>111</th>
-          <th>111</th>
-        </tr>
-      </thead>
+        <caption>
+            <h3>个人信息</h3></caption>
 
-     <tbody>
-      <tr align="center">
-        <th>姓名</th>
-        <th>性别</th>
-        <th>年龄</th>
-        <th>爱好</th>
-      </tr>
-      <tr align="center">
-        <td>lisi</td>
-        <td>male</td>
-        <td>10</td>
-        <td>sleep</td>
-      </tr>
-      <tr align="center">
-        <td>lisi</td>
-        <td>male</td>
-        <td>10</td>
-        <td>sleep</td>
-      </tr>
-    </tbody>
+        <thead>
+            <!-- tr标签 用于定义表格中的一行，必须嵌套在table标签中，table标签中包含几对tr ，就有几行表格 -->
+            <!-- align 设置表格的对齐方式  'left''center''right' -->
+            <tr>
+                <!-- th标签用于设置表格的表头，只需用表头标记<th></th>替换相应的单元格标记<td></td>即可 -->
 
-    <tfoot>
-      <tr>
-        <td>2222</td>
-        <td>2222</td>
-        <td>2222</td>
-        <td>2222</td>
-      </tr>
-    </tfoot>
+                <th>111</th>
+                <th>111</th>
+                <th>111</th>
+                <th>111</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr align="center">
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>爱好</th>
+            </tr>
+            <tr align="center">
+                <!-- td标签用于定义表格的单元格,必须嵌套在tr标签中,一对tr中包含几对td,就表示该行有多少列 -->
+                <!-- colspan 设置单元格 横跨几列 -->
+                <!-- rowspan 表示单元格独占几行 -->
+                <td colspan="2">电话</td>
+                <td rowspan="3">海淀区</td>
+                <td>sleep</td>
+            </tr>
+            <tr align="center">
+                <td>lisi</td>
+                <td>male</td>
+                <td>sleep</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td>2222</td>
+                <td>2222</td>
+                <td>2222</td>
+                <td>2222</td>
+            </tr>
+        </tfoot>
     </table>
 
-  </body>
+</body>
+
 </html>

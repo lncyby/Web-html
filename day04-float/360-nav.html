@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <title>360头部</title>
     <style>
+        /*不暴力的方法去除内外边框*/
+
         html,
         body,
         ul,
@@ -27,32 +29,33 @@
             margin: 0;
             padding: 0
         }
-
         /*w为版心的样式*/
+
         .w {
-          width: 1250px;
-          margin: auto;
+            width: 1250px;
+            margin: auto;
         }
 
         ul {
-          list-style: none;
+            list-style: none;
         }
 
         a {
-          text-decoration: none;
+            text-decoration: none;
         }
 
         .clearfix::after,
         .clearfix::before {
-          content: "";
-          height: 0;
-          line-height: 0;
-          display: block;
-          visibility: hidden;
-          clear: both;
+            content: "";
+            height: 0;
+            line-height: 0;
+            display: block;
+            visibility: hidden;
+            clear: both;
         }
+
         .clearfix {
-          zoom: 1;
+            zoom: 1;
         }
 
         .head {
@@ -61,158 +64,153 @@
         }
 
         .head-center {
-          height: 36px;
+            height: 36px;
         }
 
         .head-center ul li {
-          float: left;
-          height: 36px;
-          line-height: 36px;
-          margin-right: 20px;
+            float: left;
+            height: 36px;
+            line-height: 36px;
+            margin-right: 20px;
         }
 
         .head-center ul li a {
-          color: #bfbfbf;
-          font-size: 14px;
+            color: #bfbfbf;
+            font-size: 14px;
         }
 
         .head-center ul li a:hover {
-          color: #23ac38;
+            color: #23ac38;
         }
 
-        .head-center ul li a.nav-phone{
-          background: url("./360-img/t.png")  no-repeat  0px -265px;
-          padding-left: 25px;
+        .head-center ul li a.nav-phone {
+            background: url("./360-img/t.png") no-repeat 0px -265px;
+            padding-left: 25px;
         }
 
         .head-left {
-          float: left;
+            float: left;
         }
 
         .head-right {
-          float: right;
+            float: right;
         }
 
-
-
         .banner {
-          height: 100px;
-          /*background: yellow;*/
-          margin-top: 50px;
-          padding-top: 20px;
+            height: 100px;
+            /*background: yellow;*/
+            margin-top: 50px;
+            padding-top: 20px;
         }
 
         .banner-logo {
-          width: 150px;
-          height: 40px;
-          background: url("./360-img/t013cfce5d46cdb1b5f.png");
-          float: left;
+            width: 150px;
+            height: 40px;
+            background: url("./360-img/t013cfce5d46cdb1b5f.png");
+            float: left;
         }
 
         .banner-content {
-          width:  740px;
-          float: right;
+            width: 740px;
+            float: right;
         }
 
         .banner-content .search {
-          float: left;
-          height: 75px;
-          width: 540px;
+            float: left;
+            height: 75px;
+            width: 540px;
         }
 
         .banner-content .car {
-          float: right;
-          width: 120px;
-          height: 20px;
-          padding: 10px 20px;
-          background: #f9f9f9;
-          border: 1px solid #ddd;
+            float: right;
+            width: 120px;
+            height: 20px;
+            padding: 10px 20px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
         }
 
         .banner-content .car p {
-          height: 20px;
-          background: url("./360-img/t.png") no-repeat 0px 2px;
-          padding-left: 20px;
-          font-size: 14px;
-          color: #848484;
+            height: 20px;
+            background: url("./360-img/t.png") no-repeat 0px 2px;
+            padding-left: 20px;
+            font-size: 14px;
+            color: #848484;
         }
 
         .search .search-text {
-          width: 450px;
-          height: 38px;
-          border: 1px solid #23ac38;
-          outline-style: none;
-          padding-left: 10px;
-          float: left;
+            width: 450px;
+            height: 38px;
+            border: 1px solid #23ac38;
+            outline-style: none;
+            padding-left: 10px;
+            float: left;
         }
 
         .search .click {
-          width: 70px;
-          height: 42px;
-          background: #23ac38 url("./360-img/t.png") no-repeat  20px -111px;
-          float: left;
-
-          /*鼠标显示为小手*/
-          cursor: pointer;
+            width: 70px;
+            height: 42px;
+            background: #23ac38 url("./360-img/t.png") no-repeat 20px -111px;
+            float: left;
+            /*鼠标显示为小手*/
+            cursor: pointer;
         }
 
         .search-options {
-          float: left;
-          font-size: 13px;
-          padding-top: 10px;
+            float: left;
+            font-size: 13px;
+            padding-top: 10px;
         }
 
         .search-options a {
-          color: #848484;
-          margin-right: 15px;
+            color: #848484;
+            margin-right: 15px;
         }
 
-        .search-options a:hover {
-        }
-
+        .search-options a:hover {}
     </style>
 </head>
 
 <body>
 
     <div class="head">
-      <div class="head-center  w">
-        <ul class="head-left  clearfix">
-          <li><a href="#">大客户采购</a></li>
-          <li><a href="#">帮助中心</a></li>
-          <li><a href="#">收藏本站</a></li>
-          <li><a href="#">商品入驻</a></li>
-          <li><a href="#">老人手环申请</a></li>
-          <li><a class="nav-phone" href="#">手机360商城</a></li>
-        </ul>
-        <ul class="head-right clearfix">
-            <li><a href="#">登录</a></li>
-            <li><a href="#">注册&nbsp;&nbsp;&nbsp;&nbsp;|</a></li>
-            <li><a href="#">我的订单</a></li>
-            <li><a href="#">F码购买</a></li>
-        </ul>
-      </div>
+        <div class="head-center  w">
+            <ul class="head-left  clearfix">
+                <li><a href="#">大客户采购</a></li>
+                <li><a href="#">帮助中心</a></li>
+                <li><a href="#">收藏本站</a></li>
+                <li><a href="#">商品入驻</a></li>
+                <li><a href="#">老人手环申请</a></li>
+                <li><a class="nav-phone" href="#">手机360商城</a></li>
+            </ul>
+            <ul class="head-right clearfix">
+                <li><a href="#">登录</a></li>
+                <li><a href="#">注册&nbsp;&nbsp;&nbsp;&nbsp;|</a></li>
+                <li><a href="#">我的订单</a></li>
+                <li><a href="#">F码购买</a></li>
+            </ul>
+        </div>
 
 
     </div>
 
     <div class="banner  w">
-      <div class="banner-logo"></div>
-      <div class="banner-content clearfix">
-        <div class="search">
-          <input class="search-text" type="text">
-          <div class="click"></div>
-          <div class="search-options">
-            <a href="#">360安全路由5G</a>
-            <a href="#">360安全路由5G</a>
-            <a href="#">360安全路由5G</a>
-            <a href="#">360安全路由5G</a>
-          </div>
+        <div class="banner-logo"></div>
+        <div class="banner-content clearfix">
+            <div class="search">
+                <input class="search-text" type="text">
+                <div class="click"></div>
+                <div class="search-options">
+                    <a href="#">360安全路由5G</a>
+                    <a href="#">360安全路由5G</a>
+                    <a href="#">360安全路由5G</a>
+                    <a href="#">360安全路由5G</a>
+                </div>
+            </div>
+            <div class="car">
+                <p>我的购物车(<span>0</span>)</p>
+            </div>
         </div>
-        <div class="car">
-          <p>我的购物车(<span>0</span>)</p>
-        </div>
-      </div>
     </div>
 </body>
 

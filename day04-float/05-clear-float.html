@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>多个元素浮动, 清除浮动方法</title>
+    <style>
+        /*清除浮动
+          １．直接给父盒子设置一个高度(严格的说不算清除浮动)。这种方式简单方便，
+          但是当父盒子没有办法直接设置高度就必须用其他方法清除浮动。
+          ２．在发生浮动的父盒子中的最后添加一个空元素，然后给该空元素设置clear属性值。
+          ３．直接给父盒子设置overflow属性
+　　　　　　　　overflow：hidden;
+　　　　　　　　这种方式简单方便，但是如果页面一旦出现了定位，那么定位可能会受到影响。
+          ４．使用伪元素清除浮动
+          .clearfix::after,
+          .clearfix::before {
+             content: "";
+             height: 0;
+             display: block;
+              visibility: hidden;
+              line-height: 0;
+              clear: both;
+               }
+               .clearfix {
+               zoom: 1;//兼容ie
+             }
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            /* ul元素没有设置高度，而他的子元素都浮动了，那么高度为0*/
+            overflow: hidden;
+        }
+
+        ul li {
+            width: 300px;
+            height: 300px;
+            float: left;
+        }
+
+        ul li.one {
+            background: yellow;
+        }
+
+        ul li.two {
+            background: red;
+        }
+
+        ul li.three {
+            background: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li class="one">one</li>
+        <li class="two"> two</li>
+        <li class="three">three</li>
+    </ul>
+
+    <p>看就烧烤公交看见帅哥看见看见就看过监控大家会看到客户家乐福卡好久来看附件花费就好看房交会</p>
+
+</body>
+
+</html>

@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>绝对定位</title>
     <style>
-    * {
-      margin: 0;
-      padding: 0;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
+        .start {
+            width: 200px;
+            height: 200px;
+            background: blue;
+        }
 
-    .start {
-      width: 200px;
-      height: 200px;
-      background: blue;
-    }
+        .f {
+            width: 500px;
+            height: 300px;
+            border: 1px solid red;
+            /*设置position:absolute后,脱离标准流,不占据页面位置*/
+            /*如果盒子没有父盒子，那么在绝对定位的时候这个位置是相对于body的。*/
+            position: absolute;
+            top: 50px;
+            left: 100px;
+        }
 
-    .f {
-      width: 500px;
-      height: 300px;
-      border: 1px solid red;
+        .s {
+            width: 300px;
+            height: 200px;
+            background: yellow;
+        }
+    </style>
+</head>
 
-
-      position: absolute;
-      top: 50px;
-      left: 100px;
-    }
-
-    .s {
-      width: 300px;
-      height: 200px;
-      background: yellow;
-    }
-  </style>
-  </head>
-  <body>
+<body>
 
     <div class="start"></div>
 
     <div class="f">
-      <div class="s"></div>
+        <div class="s"></div>
     </div>
 
     <p>考试结果大家赶快大家好看得见看到机会抠脚大汉看到机会空间的好看房价很快就发货就和扩大化</p>
-  </body>
+</body>
+
 </html>

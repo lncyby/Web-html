@@ -1,43 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>初识定位</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-      .f {
-        width: 500px;
-        height: 300px;
-        border: 1px solid red;
-        margin: auto;
-        margin-top: 100px;
-      }
+        .f {
+            width: 500px;
+            height: 300px;
+            border: 1px solid red;
+            margin: auto;
+            margin-top: 100px;
+        }
 
-      .s {
-        width: 300px;
-        height: 200px;
-        background: yellow;
-        position: relative;
-
-        /* left 和right尽量不要都设置，否则会发生冲突*/
-        /*left: 100px;*/
-        /*top: 50px;*/
-
-        right: -100px;
-        bottom: -50px;
-      }
+        .s {
+            width: 300px;
+            height: 200px;
+            background: yellow;
+            position: relative;
+            /* left 和right尽量不要都设置，否则会发生冲突* /
+            /*距离自己之前的位置偏移100px;意识就是向右偏移100px;*/
+            /*left:正数向右移动,负数向左移动*/
+            /*left: 100px;*/
+            /*top: 50px;*/
+            right: -100px;
+            /*距离自己之前的位置偏移50px,向下偏移50px;*/
+            /*用法同left,right*/
+            bottom: -50px;
+            /*left和right的值是冲突的,一般情况下只设置一个*/
+            /*right:正数向左移动.;负数向右移动*/
+            /*距离自己之前的位置偏移50px;向左偏移50px*/
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
 
     <div class="f">
-      <div class="s"></div>
+        <div class="s"></div>
     </div>
 
 
-  </body>
+</body>
+
 </html>
