@@ -10,21 +10,29 @@
 
 <script type="text/javascript">
 	var f = document.querySelector("#files");
-
+	//onchange当用户改变input输入框内容时执行一段Javascript代码
+	//onchange 事件会在域的内容改变时发生。
+	//onchange 事件也可用于单选框与复选框改变后触发的事件。
 	f.onchange = function(event){
 		for (var i = 0; i < f.files.length; i++){
 			console.log(f.files[i].name  +  "     " + parseInt(f.files[i].size/1024) + "KB");
 		}
 
 		var file = f.files[0];
-
+		//FileReader接口有4个方法，其中3个用来读取文件，另一个用来中断读取。无论读取成功或失败，方法并不会返回读取结果，这一结果存储在result属性
+		//使用FileReader对象,web应用程序可以异步的读取存储在用户计算机上的文件(或者原始数据缓冲)内容,
+		//可以使用File对象或者Blob对象来指定所要处理的文件或数据.其中File对象可以是来自用户在一个<input>
+		//元素上选择文件后返回的FileList对象,也可以来自拖放操作生成的 DataTransfer对象,还可以是来自在一
+		//个HTMLCanvasElement上执行mozGetAsFile()方法后的返回结果.
+		//想要创建一个FileReader对象,很简单,如下:		
 		var reader = new FileReader();
+		//addEventListener事件监听	
 		reader.addEventListener("load", function(){
 
 			//只有读取完毕之后，才可以访问result
 			console.log(reader.result);
 		}, false);
-
+		//readAsText 方法可以将 Blob 或者 File 对象转根据特殊的编码格式转化为内容(
 		reader.readAsText(file);
 
 	}
