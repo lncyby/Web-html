@@ -29,11 +29,23 @@
 		//addEventListener事件监听	
 		reader.addEventListener("load", function(){
 
-			//只有读取完毕之后，才可以访问result
-			console.log(reader.result);
+		//只有读取完毕之后，才可以访问result
+		console.log(reader.result);
+		/*var img = new Image();
+		img.onload = function(){
+		document.body.appendChild(img);
+			}
+		img.src = reader.result;*/
 		}, false);
-		//readAsText 方法可以将 Blob 或者 File 对象转根据特殊的编码格式转化为内容(
-		reader.readAsText(file);
+
+		//按照文本方式读取文件内容
+		// reader.readAsText(file);
+
+		//按照url读取，用于读取图片
+		// reader.readAsDataURL(file);
+
+		//按照二进制字符串读取
+		reader.readAsBinaryString(file);
 
 	}
 
