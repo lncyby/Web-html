@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>jQuery选择器</title>
-  </head>
-  <body>
+</head>
+
+<body>
 
     <div>老大大</div>
     <div id="divId" class="f">
-      老大
+        老大
     </div>
     <div name="yangtwo">老二</div>
     <div name="yangsan">老三</div>
@@ -16,23 +18,59 @@
     <p>别人家的老五</p>
     <div name="yang">老五</div>
 
-
-
     <script src="./js/jquery-3.0.0.min.js" charset="utf-8"></script>
     <script type="text/javascript">
-     // :first 伪类选择器冒号前边不要加空格
-      console.log($(".f ~ div:first"));
-      console.log($(".f ~ div:last"));
-      console.log($(".f ~ div:eq(1)"));//从0开始计数
-      console.log($(".f ~ div:even"));//编号偶数
+        // :first 伪类选择器冒号前边不要加空格
+        console.log($(".f ~ div:first"));
+        /*匹配.f同级下的div元素,只取到第一个div元素  <div name="yangtwo">老二</div>
+        :first 选择第一个匹配的元素    相当于:eq(0)。它也可以写为:lt(1)。
+        虽然:first只匹配一个单独的元素，但是:first-child选择器可以匹配多个：
+        即为每个父级元素匹配第一个子元素。*/
+        console.log($(".f ~ div:last"));
+        /*匹配.f同级下的div元素,只取最后一个div元素     <div name="yang">老五</div>
+        :last 选择最后一个匹配的元素*/
+        console.log($(".f ~ div:eq(1)")); //从0开始计数
+        /*匹配.f同级下的div元素,取出位置为(1)的div元素  <div name="yangsan">老三</div>
+        :eq(index) 在匹配的集合中选择索引值为index的元素
+        注意: index: 匹配元素的索引值（从0开始计数)*/
+        console.log($(".f ~ div:even")); //编号偶数 /*:even 选择所引值为偶数的元素，从 0 开始计数*/
+        /*    :animated 选择所有正在执行动画效果的元素
+              :eq(index)     在匹配的集合中选择索引值为index的元素
+              :even          选择所引值为偶数的元素，从 0 开始计数
+              :first         选择第一个匹配的DOM元素
+              :gt(index)     选择匹配集合中所有大于给定index（索引值）的元素。
+              :header        选择所有标题元素，像h1, h2, h3 等
+              :lang(language)        选择指定语言的所有元素
+              :last          选择最后一个匹配的元素
+              :lt(index)     选择匹配集合中所有索引值小于给定index参数的元素。
+              :not()         选择所有元素去除不匹配给定的选择器的元素。
+              :odd           选择索引值为奇数元素，从 0 开始计数
+              :root          选择该文档的根元素
+              :target        选择由文档URI的格式化识别码表示的目标元素。
+        */
 
+        //属性选择器 "[属性名称='属性值' ]", 注意引号的的使用
+        // console.log($("[name='laowu']"));
 
-      //属性选择器 "[属性名称='属性值' ]", 注意引号的的使用
-      // console.log($("[name='laowu']"));
+        console.log($("[name*='yang']"));
+        /*只要 带有"yang"字符字样的类名 都会匹配到选择指定属性具有包含一
+        个给定的子字符串的元素。（选择给定的属性是以包含某些值的元素）*/
+        console.log($("[name$='si']"));
+        /* 匹配 以"si"字符 结尾的 类名选择指定属性是以给定值结尾的元素。
+        这个比较是区分大小写的。*/
 
-      console.log($("[name*='yang']"));
-      console.log($("[name$='si']"));
-
+        /*
+            [name|="value"]  选择指定属性值等于给定字符串或以该字符串为前缀（该字符串后跟一个连字符“-” ）的元素
+            [name*="value"]  选择指定属性具有包含一个给定的子字符串的元素。（选择给定的属性是以包含某些值的元素）
+            [name~="value"]  选择指定属性用空格分隔的值中包含一个给定值的元素。
+            [name$="value"]  选择指定属性是以给定值结尾的元素。这个比较是区分大小写的
+            [name="value"]   选择指定属性是给定值的元素。
+            [name!="value"]  选择不存在指定属性，或者指定的属性值不等于给定值的元素。
+            [name^="value"]  选择指定属性是以给定字符串开始的元素
+            [name]           选择所有具有指定属性的元素，该属性可以是任何值。
+            [name="value"][name2="value2"] 选择匹配所有指定的属性筛选器的元素
+        */
     </script>
-  </body>
+</body>
+
 </html>

@@ -1,81 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>ajax登录</title>
 	<style>
+		.hint {
+			color: red;
+			visibility: hidden;
+			/*内容隐藏 占据页面位置*/
+		}
 
-	    .hint {
-	    	color: red;
-	    	visibility: hidden;
-	    }
 		.btn {
 			cursor: pointer;
+			/* 设置鼠标样式   将鼠标变成手*/
 		}
 	</style>
 </head>
+
 <body>
 
- <div class="login">
-    <p class="hint">用户名或者密码不能为空!</p>
+	<div class="login">
+		<p class="hint">用户名或者密码不能为空!</p>
 
- 	用户名： <input class="name" type="text" placeholder="邮箱/手机"><br><br>
- 	密  码：  <input class="passwd" type="password" placeholder="密码"> <br><br>
+		用户名： <input class="name" type="text" placeholder="邮箱/手机"><br><br> 密 码： <input class="passwd" type="password" placeholder="密码"> <br><br>
 
- 	<button class="btn">登录</button>
- </div>
+		<button class="btn">登录</button>
+	</div>
 
- <script src="./js/jquery-3.0.0.min.js"></script>
- <script>
+	<script src="./js/jquery-3.0.0.min.js"></script>
+	<script>
+		$(function() {
+			//.click事件为  鼠标单击事件   当鼠标单击 指定内容时,会执行 下面函数内的命令
+			$(".btn").click(function() {
+				var name = $(".name").val(); //获得输入框的name值 //.val事件为获得输入框内容
+				var passwd = $(".passwd").val(); //获得passd的值
 
-    $(function(){
-    	$(".btn").click(function(){
-    		var name = $(".name").val();  //获得输入框的name值
-    		var  passwd = $(".passwd").val(); //获得passd的值
+				// console.log("name = ", name);
+				// console.log("passwd = ", passwd);
 
-    		// console.log("name = ", name);
-    		// console.log("passwd = ", passwd);
+				/*
+				判断用户名和密码是否不为空?
+				为空：提示不能为空，数据不能提交
+				不为空： 数据正常发送给后台处理程序
+				*/
 
-    		/*
-    		判断用户名和密码是否不为空?
-    		为空：提示不能为空，数据不能提交
-    		不为空： 数据正常发送给后台处理程序
-    		*/
+				//如果name值不为空 和  passwd值不为空     &&代表和    两这必须都符合
+				if ((name != "") && (passwd != "")) {
+					/*数据正常提交*/
 
-    		if ( (name !="")  && (passwd !="")){
-    			/*数据正常提交*/
+					//下面是 javascript 原生aiax提交数据的方法
+					//XMLHttpRequest 对象用于在后台与服务器交换数据
+					/*第一步*/
+					var xhr = new XMLHttpRequest(); //创建 XMLHttpRequest 对象       利用这个对象的返回值引用当中的方法
+					/*onreadystatechange 是一个事件句柄 ,请求状态改变的事件触发器（readyState变化时会调用这个属性上注册的javascript函数）。
+					  当 XMLHttpRequest 对象的状态发生改变时，会触发此函数。
+					  状态从 0 (uninitialized) 到 4 (complete) 进行变化。仅在状态为 4 时，我们才执行代码。*/
+					/*把响应代码放在这确保任何响应都能 接收到 */
+					xhr.onreadystatechange = function() {
+						if (xhr.readyState == 4) { //监听状态是否为4     请求成功  向下执行
+							/*XMLHttpRequest中的readyState方法表示XMLHttpRequest对象的状态：
+								 0：未初始化。对象已创建，未调用open；
+								 1：open方法成功调用，但Sendf方法未调用；
+								 2：send方法已经调用，尚未开始接受数据；
+								 3：正在接受数据。Http响应头信息已经接受，但尚未接收完成；
+								 4：完成，即响应数据接受完成。*/
+							if (xhr.status >= 200 && xhr.status < 300) { //返回http状态码 监听状态码  在200到300之间 表示成功
+								/*.status方法为  服务器返回的http状态码。200表示“成功”，404表示“未找到”，500表示“服务器内部错误”等。*/
 
-    			var xhr = new XMLHttpRequest();
+								//判断后台的响应数据
+								//服务器响应的文本内容
+								if (xhr.responseText == "OK") {
+									alert("登录成功");
+								} else {
+									alert("用户名和密码错误！");
+								}
+							} else {
+								alert("响应失败！！！！");
+							}
+						}
+					};
 
-                xhr.onreadystatechange = function(){
-                	if (xhr.readyState == 4){
-                		if (xhr.status >= 200 && xhr.status < 300){
+					/*第二步*/
+					xhr.open("post", "./login.php", true); //异步请求---->第一个参数表示请求的方法("get   post")    第二个参数表示在后端请求的运行文件的地址   True 表示脚本会在 send() 方法之后继续执行，而不等待来自服务器的响应。
+					/*Open(string method,string url,boolean asynch,String username,string password)
+					 	.open方法-->指定和服务器端交互的HTTP方法，URL地址，即其他请求信息；
+					  Method:表示http请求方法，一般使用"GET","POST".
+					 	url：表示请求的服务器的地址；
+					  asynch：表示是否采用异步方法，true为异步，false为同步；
+										false
+					  后边两个可以不指定，username和password分别表示用户名和密码，提供http认证机制需要的用户名和密码。*/
 
-                			//判断后台的响应数据
-                			if (xhr.responseText == "OK"){
-                				alert("登录成功");
-                			} else {
-                				alert("用户名和密码错误！");
-                			}
-                		} else {
-                           alert("响应失败！！！！");
-                		}
-                	}
-                };
+					xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+					//当发送post请求时，为了模拟类似表单的数据提交方式，需要设置请求头    get方法 可以不写
+					/*SetRequestHeader(String header,String Value)
+					  设置HTTP请求中的指定头部header的值为value.
+					  此方法需在open方法以后调用，一般在post方式中使用*/
 
-    			xhr.open("post", "./login.php", true);
-                
-    			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+					var data = "name=" + name + "&passwd=" + passwd;
+					/*第三步*/
+					xhr.send(data);
+					/*.send方法--->向服务器发出请求，如果采用异步方式，该方法会立即返回。  必须指定  可以不发数据
+          content可以指定为null表示不发送数据".send(null)"，其内容可以是DOM对象，输入流或字符串。*/
 
-    			var data = "name=" + name + "&passwd=" + passwd;
-             	 xhr.send(data);
-              	} else {
-              		
-    			/*数据不完整，不能提交*/
-    			$(".hint").css("visibility", "visible");
-    		}
-    	});
-    });
- </script>
+				} else {
+
+					/*数据不完整，不能提交*/
+					$(".hint").css("visibility", "visible");
+				}
+			});
+		});
+	</script>
 </body>
+
 </html>

@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>jQuery选择器</title>
-  </head>
-  <body>
+</head>
+
+<body>
 
     <h1>这是h1</h1>
     <h1>这是h1</h1>
 
     <h2>这是h2</h2>
 
+    <!-- 引入外部jquery 文件 -->
     <script src="./js/jquery-3.0.0.min.js" charset="utf-8"></script>
     <script type="text/javascript">
-      // jQuery =====  $, jQuery(xxxx) 返回的是一个jQuery对象
+        // jQuery =====  $, jQuery(xxxx) 返回的是一个jQuery对象
 
-      var tag = jQuery("h1");//使用标签选择器
-      console.log(tag);
+        var tag = jQuery("h1"); //使用标签选择器     可以对上面的 hi标签 操作
+        console.log(tag); // 会在控制台上显示 h1 标签的内容
 
-      var tag2 = jQuery("h3");
-      console.log(tag2);
+        var tag2 = jQuery("h3");
+        console.log(tag2);
 
 
-       console.log($("h1"));
-       console.log($("h3"));
-
+        // 这里的 $ 符号 等于上面的 jQuery    以后 将会用 $ 代替 jQuery
+        console.log($("h1"));
+        console.log($("h3"));
     </script>
 
-  </body>
+</body>
+
 </html>

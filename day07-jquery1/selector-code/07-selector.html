@@ -17,8 +17,10 @@
 
     <script src="./js/jquery-3.0.0.min.js" charset="utf-8"></script>
     <script type="text/javascript">
-        console.log($("p:nth-child(3)"));//编号从1开始,所有子元素都有编号
-        console.log($("div p:eq(2)"));//eq从0开始，并且只有符合条件的才会被编号
+        console.log($("p:nth-child(3)")); //编号从1开始,所有子元素都有编号
+        //在这里编号为(3)的元素为<div>C元素</div>,不符合匹配的<p>元素,所以 不会匹配到内容
+        /*选择的他们所有父元素的第n个子元素。*/
+        console.log($("div p:eq(2)")); //eq从0开始，并且只有符合条件的才会被编号 <p>D元素</p>
     </script>
 </body>
 

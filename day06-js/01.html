@@ -1,46 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title></title>
     <style>
-     * {
-       margin: 0;
-       padding: 0;
-     }
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-     .f {
-       font-size: 30px;
-       margin-left: 100px;
-     }
+        .f {
+            font-size: 30px;
+            margin-left: 100px;
+        }
     </style>
-  </head>
-  <body>
+</head>
 
-   <!-- 行内的javascript  -->
-   <button class="f" onclick="alert('这是行内javascript代码!');">行内javascript js </button>
+<body>
 
-   <button id="btn">普通按钮1</button>
+    <!-- 行内的javascript  -->
+    <!-- onclick='alert'  点击内容时,在页面上弹出小窗口    窗口内容为'这是行内javascript代码'-->
+    <button class="f" onclick="alert('这是行内javascript代码!');">行内javascript js </button>
 
-
-   <button id="btn2">普通按钮2</button>
-
-
-   <script type="text/javascript">
-     //这是javascript的注释, 此代码会在页面加载时直接运行
-     alert("这是嵌套的javascript代码!");
-
-     var btn = document.getElementById('btn');
-     btn.onclick = function(){
-       console.log("你点击了button按钮。。。。。");
-     };
-   </script>
+    <button id="btn">普通按钮1</button>
 
 
-   <!-- 这是引入外部javascript文件  -->
-   <script src="./test.js"></script>
+    <button id="btn2">普通按钮2</button>
+
+
+    <script type="text/javascript">
+        //这是javascript的注释, 此代码会在页面加载时直接运行
+        //alera() 在页面上弹出窗口 窗口内容为括号中的内容
+        alert("这是嵌套的javascript代码!");
+
+        var btn = document.getElementById('btn');
+        btn.onclick = function() {
+            console.log("你点击了button按钮。。。。。");
+        };
+    </script>
+
+
+    <!-- 这是引入外部javascript文件  -->
+    <script src="./test.js"></script>
 
 
 
-  </body>
+</body>
+
 </html>

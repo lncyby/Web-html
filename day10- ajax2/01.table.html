@@ -1,60 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style>
+		table {
+			width: 200px;
+			height: 200px;
+			border-collapse: collapse;
+			/*设置 边框内空白间距为0*/
+			text-align: center;
+			box-shadow: 0px 0px 10px green;
+			/*设置边框阴影     后面可以加6个参数*/
+		}
 
-	  table {
-	  	width: 200px;
-	  	height: 200px;
-	  	border-collapse: collapse;
-	  	text-align: center;
+		table,
+		tr,
+		td {
+			border: 1px solid gray;
+			/*给表格加边框*/
+		}
 
-	  	box-shadow: 0px 0px  10px green;
-	  }
-
-	  table,tr,td {
-	  	border:1px solid gray;
-	  }
-
-	  tr:hover {
-	  	/*background: yellow;*/
-	  }
-		
+		tr:hover {
+			/*background: yellow;*/
+		}
 	</style>
 </head>
+
 <body>
 
-   <table>
-   	<tr>
-   		<td>1</td>
-   		<td>2</td>
-   		<td>3</td>
-   	</tr>
-   	<tr>
-   		<td>1</td>
-   		<td>2</td>
-   		<td>3</td>
-   	</tr>
-   	<tr>
-   		<td>1</td>
-   		<td>2</td>
-   		<td>3</td>
-   	</tr>
-   </table>
+	<table>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+	</table>
 
-   <script src="./js/jquery-3.0.0.min.js"></script>
-   <script>
-   	$(function(){
+	<script src="./js/jquery-3.0.0.min.js"></script>
+	<script>
+		$(function() {
+			//.hover()鼠标事件,有两个参数,第一个函数是鼠标放上取要执行的内容,第二个函数是鼠标离开要执行的内容
+			$("table tr").hover(function() {
+				//this    代表上面括号里的内容("table tr")
+				$(this).css("backgroundColor", "yellow");
+			}, function() {
+				$(this).css("backgroundColor", "#fff");
+			});
+		});
+	</script>
 
-   		$("table tr").hover(function(){
-   			$(this).css("backgroundColor", "yellow");
-   		}, function(){
-   			$(this).css("backgroundColor", "#fff");
-   		}); 
-   	});
-   </script>
-	
 </body>
+
 </html>

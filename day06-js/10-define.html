@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>变量声明提升</title>
-  </head>
-  <body>
+</head>
+
+<body>
 
     <script type="text/javascript">
-
         var a = 10;
         console.log(a);
-        console.log(b);//undefined
+        console.log(b); //undefined
         var b = 20;
 
         /*
@@ -19,10 +20,11 @@
         */
         var a = 10;
         var b;
-        console.log(a);
-        console.log(b);
+        console.log(a); //10
+        console.log(b); //20
         b = 20;
     </script>
 
-  </body>
+</body>
+
 </html>

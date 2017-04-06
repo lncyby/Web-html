@@ -1,87 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>运算符</title>
 </head>
+
 <body>
 
- <script>
-    var a = 10, b = 20;
+	<script>
+		var a = 10,
+			b = 20;
 
-    var sum = a + b;
-    console.log("sum = " , sum);
+		var sum = a + b;
+		console.log("sum = ", sum); //30
 
-    var minus = a - b;
-    console.log("minus = " , minus);
+		var minus = a - b;
+		console.log("minus = ", minus); //-10
 
-    var mul = a * b; 
-    console.log("mul = " , mul);
+		var mul = a * b;
+		console.log("mul = ", mul); //200
 
-    var div = a / b;//求最终的值， ******不是求商********
-    console.log("div = " , div);
+		var div = a / b; //求最终的值， ******不是求商********
+		console.log("div = ", div);
 
-    var  yu = 10 % 20; //求余数
-    console.log("yu = " , yu);
-
-
-    var  c = 100;
-    c++;
-    c++;
-    c++;
-    console.log("c = ", c);
-
-    var d = 100;
-    d--;
-    d--;
-    d--;
-    console.log("d = ", d);
-
-    //10属于常量，不可变
-    // error console.log(10++);
+		var yu = 10 % 20; //求余数 //10
+		console.log("yu = ", yu);
 
 
-    var e = 100;
-    var ee = ++e;
-    console.log("e = ", e);
-    console.log("ee = ", ee);
+		var c = 100;
+		c++; //101
+		c++; //102
+		c++; //103
+		console.log("c = ", c); //103
 
-    var f = 100;
-    var ff = f++; //f++是一个表达式，它的值不一定是f的值。
-    console.log("f = ", f);
-    console.log("ff = ", ff);
+		var d = 100;
+		d--; //99
+		d--; //98
+		d--; //97
+		console.log("d = ", d); //97
 
-
-    var  g = 100;
-    // g = g + 2;
-    g += 2;//102
-    g -= 2;//100
-    g *= 2;//200
-    g /= 2;//100
-    g %= 10;//0
-    console.log("g = ", g);
+		//10属于常量，不可变
+		// error console.log(10++);
 
 
-   /*
-    js中可以的对变量进行重复定义
-    var g = 200;
-    var g = 300;
-    console.log(g);
-    */
+		var e = 100;
+		var ee = ++e;
+		console.log("e = ", e); //100+1
+		console.log("ee = ", ee); //101
 
-    
-    var stus = ["lisi", "zhangsan", "wangwu", "zhaosi", 1200];
-    var len = stus.length;//获得数组的长度(元素的个数)；
-    console.log("len = ", len);
-
-	for( var i = 0; i < len ; i++){
-    	console.log(stus[i]);
-    }
+		var f = 100;
+		var ff = f++; //f++是一个表达式，它的值不一定是f的值。
+		console.log("f = ", f); //100+1
+		console.log("ff = ", ff); //101-1
 
 
+		var g = 100;
+		// g = g + 2;
+		g += 2; //102
+		g -= 2; //100
+		g *= 2; //200
+		g /= 2; //100
+		g %= 10; //0
+		console.log("g = ", g);
 
 
+		/*
+		 js中可以的对变量进行重复定义
+		 var g = 200;
+		 var g = 300;
+		 console.log(g);
+		 */
 
- </script>
+
+		var stus = ["lisi", "zhangsan", "wangwu", "zhaosi", 1200];
+		var len = stus.length; //获得数组的长度(元素的个数)；
+		console.log("len = ", len);
+
+		for (var i = 0; i < len; i++) {
+			console.log(stus[i]); //获得这个数组中的地i个元素
+		}
+	</script>
 </body>
+
 </html>

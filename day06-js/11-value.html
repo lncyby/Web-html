@@ -11,22 +11,21 @@
     <script type="text/javascript">
         var a = 10; //全局变量
         var b = 11;
-        console.log("外部的 a = " + a);
-        console.log("外部的 b = " + b);
+        console.log("外部的 a = " + a); //10
+        console.log("外部的 b = " + b); //11
 
         function fun() {
             // 函数内部的区域称之为局部作用域
             // 出现同名变量时，局部变量会覆盖全局变量
             var a = 20;
             var c = 33;
-            console.log("内部的 a = " + a);
-            console.log("内部 c = " + c);
-            b = 21;//修改全局变量的值
+            console.log("内部的 a = " + a); //20
+            console.log("内部 c = " + c); //33
+            b = 21; //修改全局变量的值
         }
         fun();
-        console.log("外部的 b = " + b);
-        console.log("在外部访问 c = " + c);
-
+        console.log("外部的 b = " + b); //21
+        console.log("在外部访问 c = " + c); //没有被定义
     </script>
 
 </body>

@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>jQuery选择器</title>
-  </head>
-  <body>
+</head>
+
+<body>
 
     <div>老大大</div>
     <div id="divId" class="f">
-      老大
+        老大
     </div>
     <div>老二</div>
     <div>老三</div>
@@ -19,10 +21,14 @@
 
     <script src="./js/jquery-3.0.0.min.js" charset="utf-8"></script>
     <script type="text/javascript">
-      console.log($(".f + div + div"));//相邻下一个兄弟选择器
-      console.log($(".f + div "));//相邻下一个兄弟选择器
-      console.log($(".f ~ p"));//
-      console.log($(".f ~ div"));//
+        console.log($(".f + div + div")); //相邻下一个兄弟选择器
+        /*相邻下一个兄弟选择器  只会匹配子元素,这里匹配的是<div>老三</div>,.f 相邻的兄弟的兄弟
+        其中重要的一点既要考虑下一个相邻兄弟选择器（ prev + next ）和一般兄弟选择器
+        （ prev ~ siblings ）所选择到的元素，必须在同一个父元素下*/
+        console.log($(".f + div ")); //相邻下一个兄弟选择器  这里匹配的是 <div>老二</div> .f 的兄弟
+        console.log($(".f ~ p")); //匹配.f 下的所有p元素,注意:所选元素 必须与之在同一级,既同一个父元素下
+        console.log($(".f ~ div")); // 匹配.f下的所有div元素,只要在同一级之后的div元素 都会匹配到
     </script>
-  </body>
+</body>
+
 </html>

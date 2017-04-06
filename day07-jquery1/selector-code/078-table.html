@@ -5,76 +5,84 @@
     <meta charset="utf-8">
     <title>jQuery选择器</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-      table {
-        border: 1px solid gray;
-        width: 500px;
-        height: 300px;
-        text-align: center;
-        margin: auto;
+        table {
+            border: 1px solid gray;
+            width: 500px;
+            height: 300px;
+            text-align: center;
+            margin: auto;
+            border-collapse: collapse;
+            /*用于取消表格的内部间距*/
+        }
 
-        border-collapse: collapse; /*用于取消表格的内部间距*/
-      }
-
-      td {
-        border: 1px solid gray;
-      }
+        td {
+            border: 1px solid gray;
+        }
     </style>
 </head>
 
 <body>
 
-  <table>
-    <tr>
-      <td>姓名</td>
-      <td>年龄</td>
-      <td>性别</td>
-    </tr>
-    <tr>
-      <td>姓名</td>
-      <td>年龄</td>
-      <td>性别</td>
-    </tr>
-    <tr>
-      <td>姓名</td>
-      <td>年龄</td>
-      <td>性别</td>
-    </tr>
-    <tr>
-      <td>姓名</td>
-      <td>年龄</td>
-      <td>性别</td>
-    </tr>
-    <tr>
-      <td>姓名</td>
-      <td>年龄</td>
-      <td>性别</td>
-    </tr>
-    <tr>
-      <td>姓名</td>
-      <td>年龄</td>
-      <td>性别</td>
-    </tr>
-    <tr>
-      <td>姓名</td>
-      <td>年龄</td>
-      <td>性别</td>
-    </tr>
+    <table>
+        <tr>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>性别</td>
+        </tr>
+        <tr>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>性别</td>
+        </tr>
+        <tr>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>性别</td>
+        </tr>
+        <tr>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>性别</td>
+        </tr>
+        <tr>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>性别</td>
+        </tr>
+        <tr>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>性别</td>
+        </tr>
+        <tr>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>性别</td>
+        </tr>
 
 
-  </table>
+    </table>
 
     <script src="./js/jquery-3.0.0.min.js" charset="utf-8"></script>
     <script type="text/javascript">
+        //将 table标签下 所有为偶数的tr标签 设置背景
         // $("table tr:even").css("backgroundColor", "lightgray");
+
+        //将 table标签下 所有为奇数的tr标签 设置背景
         // $("table tr:odd").css("backgroundColor", "lightyellow");
 
+        // 将 table标签下 顺序为(2n+1)的 tr标签 设置背景        其实2n+1为奇数
         // $("table tr:nth-child(2n+1)").css("backgroundColor", "red");
+
+        // 将 table标签下 顺序为(2n)的 tr标签 设置背景          2n为偶数
         // $("table tr:nth-child(2n)").css("backgroundColor", "gray");
+
+        //将 table标签下 顺序为(3n)的 tr标签 设置背景         3n    顺序为3的倍数
         $("table tr:nth-child(3n)").css("backgroundColor", "gray");
     </script>
 </body>

@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title></title>
     <style>
-      .alert {
-        visibility: hidden;
-      }
+        .alert {
+            visibility: hidden;
+            /*内容隐藏*/
+            /*"visibility", "visible"  隐藏内容显示 */
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
 
     <div><input class="name" type="text"> <span class="alert">请输入中文姓名</span>
     </div>
@@ -17,29 +21,25 @@
 
     <script src="./js/jquery-3.0.0.min.js" charset="utf-8"></script>
     <script type="text/javascript">
+        $(document).ready(function() {
+            // .focus-->当鼠标点击".name时"获得焦点,执行 函数,大括号里的内容(显示隐藏内容)
+            $(".name").focus(function() {
+                console.log("获得焦点。。。。");
+                $(".alert").css("visibility", "visible"); //jquery 链式链接
+            }).blur(function() { //.blur-->当鼠标点击".name"时,失去焦点,执行函数 大括号里的内容(隐藏内容)
+                console.log("失去焦点....");
+                $(".alert").css("visibility", "hidden");
+            });
 
-      $(document).ready(function(){
-        $(".name").focus(function(){
-          console.log("获得焦点。。。。");
-          $(".alert").css("visibility", "visible");
-        }).blur(function(){
-          console.log("失去焦点....");
-          $(".alert").css("visibility", "hidden");
+            $(".btn").click(function() {
+                $(".name").focus();
+            });
         });
 
-        $(".btn").click(function(){
-          $(".name").focus();
-        });
-      });
-
-
-
-
-
-
-      (function(){
-        console.log("helloworld");
-      })();
+        (function() {
+            console.log("helloworld");
+        })();
     </script>
-  </body>
+</body>
+
 </html>
