@@ -11,34 +11,38 @@
     <button id="end">点击取消定时器</button>
     <button id="add">点击</button>
     <script>
-    function fun() {
-        console.log("hello");
-        // for (var i = 0; i < 1000000; i++) {
-        //     console.log("i = ", i);
-        // }
-    }
+        function fun() {
+            console.log("hello");
+            // for (var i = 0; i < 1000000; i++) {
+            //     console.log("i = ", i);
+            // }
+        }
 
 
-    var end = document.getElementById("end");
-    var start = document.getElementById("start");
-    var si = null;
+        var end = document.getElementById("end");
+        var start = document.getElementById("start");
+        var si = null; //定义全局变量
 
+        //setInterval(callback, delay);//每隔delay毫秒的时间就执行一次fun函数
+        //setInterval如果调用的程序在间隔的时间内没有完成，那么仍然会再次执行该函数
+        start.onclick = function() {
+            si = setInterval(fun, 500); //1s 执行一次 fun 函数        1000ms = 1s
+            console.log(si); //setInterval的返回值 不是一个定
+        }
+        /*
+              该方法使得一个函数每隔固定时间被调用一次，是一个很常用的方法。
+              如果想要取消定时执行，可以调用 window.clearInterval方法。
+              clearInterval方法同样接收一个setInterval方法返回的值作为参数
+              */
+        end.onclick = function() {
+            clearInterval(si); //取消 定时器    WWI定时器设置 变量   在括号中  加入变量名 既可以取消对应的定时器
+        }
 
-    start.onclick = function() {
-        si = setInterval(fun, 500);
-        console.log(si);
-    }
-
-    end.onclick = function() {
-        clearInterval(si);
-    }
-
-
-
-    var add = document.getElementById("add");
-    add.onclick = function() {
-        console.log("add click ....");
-    }
+        //验证 在 定时器 执行期间  其他代码的运行情况    他们不会同时执行    交替执行
+        var add = document.getElementById("add");
+        add.onclick = function() {
+            console.log("add click ....");
+        }
     </script>
 </body>
 

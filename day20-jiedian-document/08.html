@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <div id="f" class="f"  f-value="10">
+    <div id="f" class="f" f-value="10">
         <div id="s" class="s" s-value="20"></div>
     </div>
 
@@ -14,29 +14,24 @@
 
 
     <script type="text/javascript">
-    var f = document.getElementById("f");
-    var s = document.getElementById("s");
-    var btn = document.getElementById("btn");
+        var f = document.getElementById("f");
+        var s = document.getElementById("s");
+        var btn = document.getElementById("btn");
 
-    console.log(f.getAttribute("f-value"));
-    console.log(s.getAttribute("s-value"));
+        //setAttribute()方法 添加指定的属性,并为其赋指定的值
+        console.log(f.getAttribute("f-value")); //获得f的值
+        console.log(s.getAttribute("s-value"));
 
-    f.setAttribute("f-value", 101);
-    s.setAttribute("s-value", 201);
-
-
-    btn.setAttribute("disabled",  null);//添加disabled
-    btn.removeAttribute("disabled");//移除disabled
+        f.setAttribute("f-value", 101); //将f 的值改为   将10改为101
+        s.setAttribute("s-value", 201);
 
 
-    btn.setAttribute("class", "btn  btn1  btn2");
-    // btn.removeAttribute("class");//移除class
+        btn.setAttribute("disabled", null); //添加disabled
+        btn.removeAttribute("disabled"); //移除disabled
 
 
-
-
-
-
+        btn.setAttribute("class", "btn  btn1  btn2"); //添加类名
+        // btn.removeAttribute("class");//移除class
     </script>
 
 

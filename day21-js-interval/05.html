@@ -1,60 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>setTimeout定时器</title>
 </head>
+
 <body>
 
-<button id="start">点击开始定时器</button>
-<button id="end">点击取消定时器</button>
+	<button id="start">点击开始定时器</button>
+	<button id="end">点击取消定时器</button>
 
-<script>
+	<script>
+		function fun() {
+			console.log("hello");
+		}
 
-    function fun(){
-    	console.log("hello");
-    }
-
-	var end = document.getElementById("end");
-	var start = document.getElementById("start");
-	var si = null;
-
-
-	start.onclick = function(){
-		si = setTimeout(fun, 1000);
-		console.log(si);
-	}
+		var end = document.getElementById("end");
+		var start = document.getElementById("start");
+		var si = null; //定义全局变量  全局可以调用
+		/*
+		setTimeout(callback,delay); 间隔delay毫秒之后执行函数callback,并且只执行一次。
+		*/
 
 
-
-    var num = 0;
-    var timer = null;
-
-	function outPut(){
-		console.log("num = ", num);
-		num++;
-
-		/*if (num == 20) {
-			return;
-		}*/
-
-		//要求代码1s之后再去运行,保证了本次运行完毕之后才会运行下一次。
-		timer = setTimeout(outPut, 1000);
-	}
-
-	outPut();
-
-	end.onclick = function(){
-		clearTimeout(timer);
-	}
+		start.onclick = function() {
+			si = setTimeout(fun, 1000);
+			console.log(si);
+		}
 
 
 
+		var num = 0;
+		var timer = null; //定义全局变量  让变量等于 null(0)的方法 可以定义全局变量
+		/*
+		利用函数的返回值   将setTimeout封装在一个函数中,可以时使 setTimeout() 定时器 循环执行
+		*/
 
+		function outPut() {
+			console.log("num = ", num);
+			num++;
 
+			/*if (num == 20) {
+				return; //当num =20 时 这个函数停止
+			}*/
 
+			//要求代码1s之后再去运行,保证了本次运行完毕之后才会运行下一次。
+			timer = setTimeout(outPut, 1000);
+		}
 
-</script>
-	
+		outPut();
+
+		end.onclick = function() {
+			clearTimeout(timer); //停止 clearTimeout() 的执行     当被停止时   ,其所在的函数 也会被停止 不会向下 执行
+		}
+		/*setInterval  与 setTimeout
+        setTimeout函数会在指定的时间过后运行函数，并且只运行一次，所以可以每次重新调用。
+        而setInterval却没有被自己所调用的函数所束缚，它只是简单地每隔一定时间就重复执行一次那个函数,
+        如果在间隔时间内函数没有执行完，也会继续执行.
+        使用arguments.callee 可以返回调用函数本身,
+        使用setTimeout可以更好取代setInterval。使用clearTimeout()可以取消超时。 　　　
+      */
+	</script>
+
 </body>
+
 </html>

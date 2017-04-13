@@ -10,7 +10,7 @@
 
     <script>
         // 'use strict';   严格模式
-
+        // arguments.callee  在严格模式下   是不允许执行的
         var num = 0;
         var timer = null;
 
@@ -20,13 +20,17 @@
             if (num == 10) {
                 return;
             }
-            setTimeout(outPut, 1000);
-            // setTimeout(arguments.callee, 1000);
+            setTimeout(outPut, 1000); //将 setTimeout 写在函数内  通过函数的调用  可以实现循环
+            // setTimeout(arguments.callee, 1000); // 通过 arguments.callee调用函数本身
         }
         outPut(10);
 
+        // setTimeout函数会在指定的时间过后运行函数，并且只运行一次，所以可以每次重新调用。
+        // 而setInterval却没有被自己所调用的函数所束缚，它只是简单地每隔一定时间就重复执行一次那个函数,
+        // 如果在间隔时间内函数没有执行完，也会继续执行.使用arguments.callee 可以返回调用函数本身,
+        // 使用setTimeout可以更好取代setInterval。使用clearTimeout()可以取消超时。 　　　
 
-        /*    setTimeout(function(){
+        /*    setTimeout(function(){  //使用这种匿名函数的方式  也可以达到以上的效果
             	console.log("num = ", num);
                 num++;
                 if (num == 10) {

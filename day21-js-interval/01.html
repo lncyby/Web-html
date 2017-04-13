@@ -12,34 +12,38 @@
     <button>3</button>
     <script src="./js/jquery-3.0.0.min.js"></script>
     <script>
-    var btns = $("button");
-    console.log(btns);
+        var btns = $("button"); //创建 jquery方式的 数组
+        console.log(btns);
 
-    console.log(btns.eq(0));
-
-
-    console.log("----------");
-
-    //jquery----》dom
-    //按照索引访问
-    console.log(btns[0]);
-    console.log(btns[1]);
-    console.log(btns[2]);
-
-    console.log("----------");
-
-    console.log(btns.get(0));
-    console.log(btns.get(1));
-    console.log(btns.get(2));
+        console.log(btns.eq(0));
 
 
-    //dom ---> jquery
-    var btnss = document.getElementsByTagName("button");
-    console.log(btnss);
-    console.log($(btnss));
-    console.log($(btnss[0]));
-    $(btnss[0]).css("color", "red");
+        console.log("----------");
+        /*将 jquery对象 装换成 DOM对象*/
+        //直接按照 下标的方式索引 即可的到 DOM 对
+        //jquery----》dom
+        //按照索引访问
+        console.log(btns[0]);
+        console.log(btns[1]);
+        console.log(btns[2]);
 
+        console.log("----------");
+
+        //使用jquery 中的 get() 方法 按照下标索引  也可以 装换成DOM 对象
+        console.log(btns.get(0));
+        console.log(btns.get(1));
+        console.log(btns.get(2));
+
+
+        //dom ---> jquery
+        /*将 DOM对象 转换成 jquery 对象*/
+        var btnss = document.getElementsByTagName("button"); // 创建 DOM方式的数组
+        //直接利用 $[]方式 按下标索引 得到的对象 即为 jquery 对象
+        console.log(btnss);
+        console.log($(btnss));
+        console.log($(btnss[0]));
+        //将 DOM 对像 装换成 jquery 对象后 可以用jquery 方法  对 对象进行 操作
+        $(btnss[0]).css("color", "red");
     </script>
 </body>
 

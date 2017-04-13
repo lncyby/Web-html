@@ -19,10 +19,10 @@
                 a {
                     color: yellow;
                     /*  & 表示当前父元素*/
-                    &:hover {
+                    &:hover {//    就为这个 a 设置 hover
                         background: red;
                     }
-                    &:visited {
+                    &:visited {// a:visited{}
                         background: purple;
                     }
                 }
@@ -35,16 +35,16 @@
 /*
   属性嵌套
 */
-
+//可以为元素直接设置属性嵌套
 .class-2 {
     border: {
-        style: solid;
-        left: {
-            width: 1px;
-            style: solid;
-            color: yellow;
+        style: solid;        //border-style:solid;
+        left: {              //border-left:
+            width: 1px;      //border-left-width:1px;
+            style: solid;    //border-left-style:solid;
+            color: yellow;   //border-left-color:yellow;
         }
-        right: {
+        right: {             //boeder-right:
             width: 1px;
             style: solid;
             color: yellow;
@@ -57,8 +57,10 @@
     div {
     	font-size: 18px;
 
-    	/* @at-root 直接回到顶层*/
-        @at-root .child {
+//用来跳出选择器嵌套的。默认所有的嵌套，继承所有上级选择器，但有了这个就可以跳出所有上级选择器。
+    	/* @at-root 直接回到顶层 表明跳出选择器  和 .class-3 变成兄弟*/
+      //单个选择器跳出
+        @at-root .child {//  .child  和 .class-3 变成兄弟,在一个层级上
             width: 200px;
         }
     }
@@ -72,7 +74,8 @@
     	font-size: 18px;
 
     	/* @at-root 直接回到顶层*/
-        @at-root{
+      //多个选择器跳出
+        @at-root{             // 将其中的 元素 全部跳出, 和 .class-4在一个层级上 ,称为兄弟
         	.child-1 {
         		width: 200px;
         	}

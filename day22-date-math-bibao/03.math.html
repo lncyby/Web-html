@@ -8,37 +8,44 @@
 
 <body>
     <script>
+        //Math对象
+        /*ECMAScript 还为保存数学公式和信息提供了一个公共位置,即 Math 对象。
+        与我们在 JavaScript 直接编写的计算功能相比, Math 对象提供的计算功能执行起来要快得多。
+        Math 对象中还提供了辅助完成这些计算的属性和方法。*/
 
-    var d = Math.max(2, 3, 4, 5);
-    console.log(d);
-
-
-
-    var scores = [98,22,67,86,100];
-
-    //apply, 将一个方法或者函数在指定的对象上调用，并且参数是以《《数组》》的形式传递的。
-    d = Math.max.apply(null, scores);
-    console.log(d);
-
-    console.log(Math.ceil(-25.6));//-25
-    console.log(Math.floor(-25.6));//-26
-    console.log(Math.round(-25.6));//-26
+        var d = Math.max(2, 3, 4, 5); //得到这一组数中的最大的数
+        console.log(d);
 
 
-    // [0,1)
-    for (var i = 0; i < 10; i++){
-    	console.log(Math.random());
-    }
 
-    //[2,33]
-    //产生[2, 33]之间的数
-    setTimeout(function(){
-     num = Math.floor(Math.random()*32+ 2);
-     console.log(num);
-     setTimeout(arguments.callee, 1000);
-    }, 1000);
+        var scores = [98, 22, 67, 86, 100]; //定义一个数组 ,下面方法  将在这个数组中 选出最大值
+
+        //apply, 将一个方法或者函数在指定的对象上调用，并且参数是以《《数组》》的形式传递的。
+        d = Math.max.apply(null, scores);
+        console.log(d);
+        /**********************/
+        //Math.ceil()执行<向上>舍入,既它总是将数值向上舍入为最接近的<整数>
+        console.log(Math.ceil(-25.6)); //-25
+        //Math.floor() 执行<向下>舍入,即它总是将数值向下舍入为最接近的整数
+        console.log(Math.floor(-25.6)); //-26
+        //Math.round()执行<标准>的舍入,即它总是将数值四舍五入为最接近的整数
+        console.log(Math.round(-25.6)); //-26
 
 
+        /*Math.random() 方法 返回 [0 --- 1]   (可以包含0,单不会出现1) 之间的随机数*/
+        // [0,1)
+        for (var i = 0; i < 10; i++) { //输出十次
+            console.log(Math.random());
+        }
+        //可以利用Math.random()实现某个<整数>范围内的一个随机数.
+        //num = Math.floor(Math.random()*可能值的总数 + 第一个可能的值)
+        //[2,33]
+        //产生[2, 33]之间的数
+        setTimeout(function() {
+            num = Math.floor(Math.random() * 32 + 2); // 产生  [2 -- 33] 之间的 随机整数
+            console.log(num); //**********( 32为产生可能值的总数,就是可以产生32个可能值[33到2之间 可以产生32个数 ]*******  2为 可能产生的第一个值,说明2为可能空间的第一个值  )
+            setTimeout(arguments.callee, 1000);
+        }, 1000);
     </script>
 </body>
 

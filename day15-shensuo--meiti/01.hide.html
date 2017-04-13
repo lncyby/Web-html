@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>jQuery中的效果</title>
 	<style type="text/css">
-	   .f {
-	   	width: 500px;
-	   	height: 300px;
-	   	background: yellow;
-	   	margin-bottom: 50px;
-	   }
+		.f {
+			width: 500px;
+			height: 300px;
+			background: yellow;
+			margin-bottom: 50px;
+		}
 	</style>
 </head>
+
 <body>
-	
+
 	<div class="f"></div>
 	<button id="hide">hide</button>
 	<button id="show">show</button>
@@ -30,50 +32,61 @@
 	<h1></h1>
 
 
-    <script src="./js/jquery-3.0.0.min.js"></script>
-    <script type="text/javascript">    	
-    	$(function(){
-    		$("#hide").click(function(event){
-    			$(".f").hide(1000, function(){
-    				$("h1").html("元素被隐藏");
-    			});
-    		});
+	<script src="./js/jquery-3.0.0.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$("#hide").click(function(event) {
+				//.hide() 隐藏匹配的元素,这个方法不接受传参,第一个参数为执行动画所需要的时间<默认为400ms>(字符串1000ms),后面可以跟执行完动画要执行的函数
+				$(".f").hide(1000, function() {
+					//当函数隐藏后在执行函
+					$("h1").html("元素被隐藏");
+				});
+			});
 
-    		$("#show").click(function(event){
-    			$(".f").show(1000, function(){
-    				$("h1").html("元素显示");
-    			});
-    		});
+			$("#show").click(function(event) {
+				//.show() 显示匹配的元素,这个方法不接受传参,第一个参数为执行动画所需要执行的时间(字符串),后面根执行完都动画要实行的函数
+				$(".f").show(1000, function() {
+					//当 元素显示后 在执行函数
+					$("h1").html("元素显示");
+				});
+			});
 
 
-    		$("#tg").click(function(event){
-    			$(".f").toggle(1000);
-    		});
+			$("#tg").click(function(event) {
+				//.toggle() 显示或隐藏匹配到的元素  可以多次点击,隐藏 显示循环执行,后面也可以接函数
+				$(".f").toggle(1000);
+			});
 
-    		$("#fadeIn").click(function(event){
-    			$(".f").fadeIn(1000);
-    		});
+			$("#fadeIn").click(function(event) {
+				//.fadeIn() 渐变 通过淡出的方式 显示匹配到的元素 ,可以指定时间,后面可以根函数
+				$(".f").fadeIn(1000);
+			});
 
-    		$("#fadeOut").click(function(event){
-    			$(".f").fadeOut(1000);
-    		});
+			$("#fadeOut").click(function(event) {
+				//.fadeOut() 渐变 通过淡出的方式 隐藏匹配元素
+				$(".f").fadeOut(1000);
+			});
 
-    		// $("#fadeTo").click(function(event){
-    		// 	$(".f").fadeTo(1000, 0.5);
-    		// });
+			// $("#fadeTo").click(function(event){
+			//.fadeTo() 调整匹配元素的透明度  (时间,透明度)
+			// 	$(".f").fadeTo(1000, 0.5);
+			// });
 
-    		$("#down").click(function(event){
-    			$(".f").slideDown(1000);
-    		});
+			$("#down").click(function(event) {
+				//.slideDown() 用滑动动画显示一个匹配元素; (时间,函数function(){})
+				$(".f").slideDown(1000);
+			});
 
-    		$("#up").click(function(event){
-    			$(".f").slideUp(1000);
-    		});
+			$("#up").click(function(event) {
+				//.slideUp()  用滑动 动画 隐藏一个匹配元素;(时间,函数function(){})
+				$(".f").slideUp(1000);
+			});
 
-    	});
-    </script>
+		});
+	</script>
 
 
 
 </body>
+
 </html>

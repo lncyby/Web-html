@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
 </head>
+
 <body>
-	
+
 
 	<ul class="one">
 		<li>1</li>
@@ -30,45 +32,60 @@
 		var cons = $(".two li");
 
 
-		console.log(lis.length);
-		console.log(cons.length);
+		console.log(lis.length); //输出 .one 下 li 的个数  只有符合条件的才会被选取 5
+		console.log(cons.length); //输出 .two 下 li 的个数  只有符合条件的才会被选择 5
 
 
-        //使用jQuery中的 .data()方法解决索引问题
-		for (var i = 0; i < lis.length; i++){
-			//使用.data方法，添加数据
+		//解决索引值只有一个的问题
+		//方法一
+		//使用jQuery中的 .data()方法解决索引问题
+		for (var i = 0; i < lis.length; i++) {
+			//使用 .data方法,添加数据
+			/*
+			data()方法向被选元素附加数据,或者从被选元素获取数据.
+			从被选元素返回附加的数据
+			$("被选中元素").data(name)               name: 可选择填写,规定要取回的数据名称.
+																							如果,没有规定名称,则该方法将以对象的形式从元素中返回所有储存的数据
+
+			向被选元素附加数据
+			$("要匹配的数据").data(name,value)         name: 必须添加,规定要设置的数据名称
+																							value: 必须填写,规定要设置的数据值
+
+			使用带有名称/值对的对象向被选元素添加数据
+			$("被选元素").data(object)                 object: 必填 规定包含名称/值对的对象
+
+
+			*/
 			lis.eq(i).data("index", i);
 
-			lis.eq(i).mouseover(function(){
+			lis.eq(i).mouseover(function() {
 				cons.eq($(this).data("index")).css("color", "red").siblings().css("color", "black");
 			});
 		}
 
-         
-         //避免添加事件时出现索引值不对的问题，使用匿名函数解决
-		for (var i = 0; i < lis.length; i++){
-/*
-			(function(i){
-				lis.eq(i).click(function(){
-					console.log(i);
-				});
-			})(i);*/
+
+		//方法二
+		//避免添加事件时出现索引值不对的问题，使用匿名函数解决
+		for (var i = 0; i < lis.length; i++) {
+			/*
+						(function(i){
+							lis.eq(i).click(function(){
+								console.log(i);
+							});
+						})(i);*/
 		}
 
 
-        //使用on绑定事件，可以给事件对象event添加数据，直接使用event.data访问即可
-		for (var i = 0; i < lis.length; i++){
-         
-              lis.eq(i).on("click", i, function(event){
-              	console.log(event.data);
-              });
+		//方法三
+		//使用on绑定事件，可以给事件对象event添加数据，直接使用event.data访问即可
+		for (var i = 0; i < lis.length; i++) {
+
+			lis.eq(i).on("click", i, function(event) {
+				console.log(event.data);
+			});
 		}
-
-
-
-
-
 	</script>
 
 </body>
+
 </html>

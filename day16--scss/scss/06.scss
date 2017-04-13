@@ -3,9 +3,15 @@
 /*
  函数
 */
-
+/*
+sass定义了很多函数可供使用，当然你也可以自己定义函数，
+以@fuction开始。sass的官方函数链接为：sass fuction，
+实际项目中我们使用最多的应该是颜色函数，
+而颜色函数中又以lighten减淡和darken加深为最，
+其调用方法为lighten($color,$amount)和darken($color,$amount)，它们的第一个参数都是颜色值，第二个参数都是百分比。
+*/
 body {
-	font-size: 20px;    
+	font-size: 20px;
 }
 
 h1 {
@@ -24,10 +30,13 @@ $baseFont: 10px;
 
 /* @function  @return */
 @function pxToRem($px) {
-	@return  $px / $baseFont * 1rem;
+	@return  $px / $baseFont * 1rem;	 //rem 是以父盒子尺寸为标准
+	//定义的函数 都要通过 @return 返回值
 }
 
-
+/*
+sass具有运算的特性，可以对数值型的Value(如：数字、颜色、变量等)进行加减乘除四则运算。请注意运算符前后请留一个空格，不然会出错。
+*/
 @function sizeSet($px1, $px2) {
 	@return  $px1 + $px2;
 }
@@ -47,7 +56,7 @@ $baseFont: 10px;
 
 
 /*
-  @if  @else 
+  @if  @else
  */
 
 

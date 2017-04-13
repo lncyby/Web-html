@@ -18,18 +18,28 @@
 
         var sen = ["习近平", "薄熙来", "周永康"];
         //   |  表示或
-        var name = "(" + sen.join('|') + ")";
-        var reg = new RegExp(name, 'ig');
+        var name = "(" + sen.join('|') + ")"; //   字符串拼接      .join("|") 表示以"|"拼接字符串
+        var reg = new RegExp(name, 'ig'); //正则表达式   创建reg正则表达式对象
 
         btn.onclick = function() {
             var str = con.value; //获得字符串
+            /*replace方法的语法是：stringObj.replace(rgExp, replaceText) 其中stringObj是字符串(string)，
+            reExp可以是正则表达式对象(RegExp)也可以是字符串(string)，replaceText是替代查找到的字符串*/
             //replace字符串替换功能
             str = str.replace(reg, function(all, p) {
                 return "<span style='color:red;'>" + p + "</span>";
             });
 
             document.getElementById("newcon").innerHTML = str;
+            // console.log(document.getElementById("newcon"));
 
+            // document.getElementsByTagName('p').innerHTML = str;
+            // console.log(document.getElementsByTagName('p'));
+            /*
+              .innerHTML在JS是双向功能：获取对象的内容  或  向对象插入内容；
+              我们可以通过  document.getElementById('ID名').innerHTML 来获取id为(ID名)的对象的内嵌内容；
+              也可以对某对象插入内容，如  document.getElementById('id名').innerHTML='这是被插入的内容(str)'
+            */
         };
     </script>
 </body>

@@ -3,7 +3,7 @@
 
 <head>
     <title>节点属性</title>
-    <style >
+    <style>
         button {
             color: green;
             font-size: 40px;
@@ -21,36 +21,43 @@
     </div>
 
     <script type="text/javascript">
+        var btn = document.getElementById("btn");
+        //为节点 赋值变量  可以根据变量名 进行相关的操作
+        console.log(btn.id); //btn
+        console.log(btn.getAttribute("id")); //btn
 
-    var btn = document.getElementById("btn");
-    console.log(btn.id);//btn
-    console.log(btn.getAttribute("id"));//btn
-
-    console.log(btn.class);
-    console.log(btn.getAttribute("class"));//
-    console.log(btn.className);
-
-
-    //访问DOM属性
-    btn.className = "btn2 btn3";//直接覆盖所有的类名
-
-    //修改样式
-    // btn.style.cssText = "color:red;";
-    btn.style.cssText = "font-size: 60px";//cssText不能叠加，后边会覆盖前边的
-
-    btn.style.backgroundColor = "yellow";
-    btn.style.border = "5px solid pink";
-    console.log(btn.style);
+        console.log(btn.class); //undefined
+        console.log(btn.getAttribute("class")); //btn1
+        console.log(btn.className); //btn1
 
 
+        //访问DOM属性
+        btn.className = "btn2 btn3"; //直接覆盖所有的类名
 
-    var f = document.getElementById("f");
-    var s = document.getElementById("s");
+        //修改样式
+        // btn.style.cssText = "color:red;";  //定义行内样式
+        btn.style.cssText = "font-size: 60px"; //cssText不能叠加，后边会覆盖前边的
 
-    // f.removeChild(s);
+        //为了防止覆盖的事情发生  可以对样式进行指定
+        btn.style.backgroundColor = "yellow";
+        btn.style.border = "5px solid pink";
+        console.log(btn.style);
 
-    var cloneNode = s.cloneNode(true);
-    document.body.appendChild(cloneNode);
+
+
+        var f = document.getElementById("f");
+        var s = document.getElementById("s");
+
+        // f.removeChild(s);
+        //节点克隆   .cloneNode()
+        /*
+        true：完全的复制一个节点，什么叫完全呢，就是复制一切，包括他的子节点，以至于文本节点，凡是有的，一律克隆，所谓完全
+
+        false：只克隆当前节点，不克隆任何的子节点，当然也不会克隆他所包裹的文本，因为任何文本都有指向他的节点（文本节点）
+        当然有时候两者是可以通用的哦，如果要复制的节点没有任何的子节点，这是二者全等；比如 img...
+        */
+        var cloneNode = s.cloneNode(true);
+        document.body.appendChild(cloneNode);
     </script>
 </body>
 

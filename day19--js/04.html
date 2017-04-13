@@ -8,47 +8,41 @@
 
 <body>
     <script type="text/javascript">
+        /*
+                    var sum = 0;
+                    // 指定跳出循环的位置
+                    one:
+                    for (var i = 0; i < 10; i++) {
+                        for (var j = 0; j < 3; j++) {
+                            sum++;
+                            if (sum == 20) {
+                                // break;   //跳出当前一层循环 不会停止外城循环
+                                break one;//跳出指定循环   one 为 循环的名字
+                            }
+                            console.log("-----");
+                        }
+                    }
 
-    /*
-    var sum = 0;
-    // 指定跳出循环的位置
-    one:
-    for (var i = 0; i < 10; i++) {
-        for (var j = 0; j < 3; j++) {
-            sum++;
-            if (sum == 20) {
-                break one;
-            }
-            console.log("-----");
+                    console.log("i = " + i);
+                    console.log("after one ...");
+                    */
+
+
+        // 'use strict';//指定使用js的严格模式运行代码
+
+        var stu = {
+            name: "lisi",
+            age: 20
+        }; //stu就是一个对象  可以对这个变量进行一系列的操作
+        console.log(stu.name); //输出 stu 这个对象 中 name的值
+
+
+        //with 方法  建议少用，严格模式属于错误
+        with(stu) {    //可以通过with 的 方式 绑定对象  对象中的属性进行操作
+            //访问的都是stu对象中的属性
+            console.log(name);
+            console.log(age);
         }
-    }
-
-    console.log("i = " + i);
-    console.log("after one ...");
-    */
-
-
-    // 'use strict';//指定使用js的严格模式运行代码
-
-    var stu = {name: "lisi", age: 20};//stu就是一个对象
-    console.log(stu.name);
-
-
-    //建议少用，严格模式属于错误
-    with(stu){
-    	//访问的都是stu对象中的属性
-    	console.log(name);
-    	console.log(age);
-    }
-
-
-    
-
-
-
-
-
-
     </script>
 </body>
 

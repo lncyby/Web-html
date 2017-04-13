@@ -6,12 +6,13 @@
 
 
 /*导入css文件，那么被编译成原始的css import*/
+  // 可以在scss中 导入外部css文件,   在这里 外部的css文件的所有内容会被编译到当前文件中
 @import "../css/01.css";
 
 
 /*导入scss文件，那么会将scss文件所有内容包含到当前文件中*/
 // @import "./01";
-@import  "./01.scss";
+@import  "./01.scss";//把01.scss 文件内的内容 引入到这里, 在这里编译成 css文件
 
 
 
@@ -25,8 +26,8 @@ $px: 1px 2px 3px 4px 5px;
 $color: red  yellow blue  green;
 
 .class-1 {
-	border-width: nth($px, 2);//位置从1开始
-	border-color: nth($color, 3);
+	border-width: nth($px, 2);//位置从1开始 //可以通过索引的方式进行寻找,  位置从1开始  (变量名,位置)
+	border-color: nth($color, 3);//border-color:blue;
 }
 
 
@@ -34,26 +35,32 @@ $color: red  yellow blue  green;
 /*二维嵌套使用*/
 $size: 10px  12px 13px,  14px 15px 16px, 17px 18px 20px;
 //$size: (10px  12px 13px) (14px 15px 16px) (17px 18px 20px);
+//和上面的效果是一样的
 
 #f {
-	font-size: nth(nth($size, 2), 1);
+	font-size: nth(nth($size, 2), 1);//nth($size,2)  --->14px 15px 16px;
+  //nth(nth($size,2),1) --->14px;
 }
 
 
 /*map数据*/
+//map数据以key和value成对出现，其中value又可以是list
 
 $headings: (h1: 1em, h2: 2em, h3: 3em, h4: 4em);
 
-@each $head, $size in $headings {
+//map数据 通过 @each 进行索引
+@each $head, $size in $headings {//map数据表中 有几类参数,@each 就要根几个变量
      #{$head} {
      	font-size: $size;
      }
 }
 
+/*map数据中还有很多函数
+如:map-merge($map1,$map2)，map-keys($map)，map-values($map)等
 
+map-get 作用是单独取出 某个值
+*/
 /*单独提取某一个值*/
 .class-2 {
-	font-size: map-get($headings, h3);
+	font-size: map-get($headings, h3);//取出 数据表中 h3 对应的 值
 }
-
-

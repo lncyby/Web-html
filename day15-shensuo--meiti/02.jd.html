@@ -5,37 +5,39 @@
     <meta charset="UTF-8">
     <title>jd轮播图</title>
     <style type="text/css">
-    * {
-        margin: 0;
-        padding: 0;
-    }
-    
-    ul {
-        list-style: none
-    }
-    
-    .box {
-        width: 790px;
-        height: 340px;
-        margin: auto;
-        /*overflow: hidden;*/
-        position: relative;
-    }
-    
-    .box > img {
-        display: none;
-    }
-    
-    .right {
-        width: 31px;
-        height: 60px;
-        background: url("./jd/right.jpg");
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        cursor: pointer;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none
+        }
+
+        .box {
+            width: 790px;
+            height: 340px;
+            margin: auto;
+            /*overflow: hidden;*/
+            position: relative;
+        }
+
+        .box>img {
+            /*子代选择器*/
+            display: none;
+        }
+
+        .right {
+            width: 31px;
+            height: 60px;
+            background: url("./jd/right.jpg");
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            /*更改鼠标样式  变成小手*/
+        }
     </style>
 </head>
 
@@ -50,24 +52,26 @@
     </div>
     <script src="./js/jquery-3.0.0.min.js"></script>
     <script type="text/javascript">
-    $(function() {
+        $(function() {
 
-        var clickNum = 0;
+            var clickNum = 0;
 
-        $(".right").click(function(event) {
-            clickNum++;
+            $(".right").click(function(event) {
+                clickNum++;
 
-            //判断是否点击的次数越界
+                //判断是否点击的次数越界
 
-            if (clickNum > 4) {
-                clickNum = 0;
-            }
-            $(".box > img").eq(clickNum).fadeIn(500).siblings("img").hide();
+                if (clickNum > 4) {
+                    clickNum = 0;
+                }
+                //img(clickNum)显示  其他兄弟元素隐藏,  .fadeIn()通过淡出的方式显示图片,
+                //选择器.siblings()选择符合条件的兄弟元素 
+                $(".box > img").eq(clickNum).fadeIn(500).siblings("img").hide();
 
 
 
+            });
         });
-    });
     </script>
 </body>
 

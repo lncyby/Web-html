@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>flex-wrap</title>
@@ -16,21 +17,21 @@
 		ul {
 			list-style: none;
 		}
-
+		
 		.f {
 			width: 100%;
 			height: 200px;
 			border: 1px solid lightblue;
-
 			margin: auto;
 			margin-top: 50px;
-
+			/*设置伸缩盒子　让元素按伸缩比自动填充容器*/
 			display: flex;
-			flex-wrap: wrap; /*可换行，不伸缩*/
-
+			/*设置子元素是否允许换行,当设置这个元素的时候, 子元素将不会伸缩,如果宽度不够,会自动换行*/
+			flex-wrap: wrap;
+			/*可换行，不伸缩*/
 		}
 
-		.f > li {
+		.f>li {
 			width: 400px;
 			height: 150px;
 			text-align: center;
@@ -40,20 +41,22 @@
 		}
 	</style>
 </head>
+
 <body>
 
 
-<h1>flex-wrap </h1>
+	<h1>flex-wrap </h1>
 
 
-<ul class="f">
-	<li>1</li>
-	<li>2</li>
-	<li>3</li>
-	<li>4</li>
-</ul>
+	<ul class="f">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
 
 
 
 </body>
+
 </html>

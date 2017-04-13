@@ -2,11 +2,13 @@
 
 
 /* 循环 */
-
+/*
+语法为：@each $var in 。其中$var表示变量，而list和map表示list类型数据和map类型数据
+*/
 $name: test1  test2  test3  test4;
 @each $var in $name {
 	.#{$var} {
-		background-image: url("./image/" + $var + ".jpg");
+		background-image: url("./image/" + $var + ".jpg");//字符串拼接
 	}
 }
 
@@ -32,7 +34,7 @@ $shadow: (box1 1px 1px 1px green), ( box2  2px 2px 1px blue), (box3 3px 3px 1px 
 
 /* @for循环 */
 //循环4次
-@for $i from 1 to 5 {
+@for $i from 1 to 5 {   //to  循环 5-1次
 	.box-#{$i} {
 		font-size: 10 * $i * 1px;
 	}
@@ -40,13 +42,8 @@ $shadow: (box1 1px 1px 1px green), ( box2  2px 2px 1px blue), (box3 3px 3px 1px 
 
 
 //循环5次
-@for $i from 1 through 5 {
+@for $i from 1 through 5 {		//through 循环5次
 	.box-#{$i} {
 		font-size: 10 * $i * 1px;
 	}
 }
-
-
-
-
-

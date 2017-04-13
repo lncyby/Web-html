@@ -12,33 +12,36 @@
     <button>按钮2</button>
     <script src="./js/jquery-3.0.0.min.js"></script>
     <script type="text/javascript">
+        /*闭包是值有权访问另一个函数作用域中的变量的函数.创建闭包的常见方式,就是在一个函数内部创建另一个函数*/
+        /*优点： 可以减少全局变量的定义，实现变量私有化。　　　 　　　　　
+          缺点： 私有变量会常驻内存，直到该变量使用完毕，会增加内存消耗。*/
         function fun1() {
             var a = 10;
-            return function() {
+            return function() { //return  返回函数本身  就是指 上层函数中的内容
                 //使用了同一个作用域中的变量a,因此变量a会常驻于内存，不会消失.
                 console.log(a);
             };
         }
 
-        var ret = fun1();
+        var ret = fun1(); //因为函数 有return 返回值   可以为其赋值变量 进行 操作
         console.log(ret);
 
         //访问其他函数的私有变量
-        ret();
+        ret(); //我们可以通过变量名这种方法 调用 函数内的闭包函数
 
         /********************************************************/
 
         //可以动态的生成一些东西
         function fun2(arg) {
             return function() {
-                console.log(arg);
+                console.log(arg); //可以使用同一作用域中 传进来的参数    函数传参发生变化   闭包 变量就会发生变化
             };
         }
 
         var one = fun2(10);
         var two = fun2(20);
-        one();
-        two();
+        one(); //10
+        two(); //20
 
 
 
@@ -53,24 +56,25 @@
                 }
                 console.log(a);
             };
+            // console.log("0000000000", a);   不会输出   return 之后的代码 不会执行
         }
 
 
         //one和two之间没有任何关联，都拥有自己的a
         one = fun3();
-        one(); //15
-        one(); //20
+        one(); //15      调用闭包   闭包函数 执行自己的任务
+        one(); //20      闭包函数   会记住自己上一次的变量    使用上一次的变量 接着执行
 
 
 
-        two = fun3();
+        two = fun3(); //由于是分开调用函数   为函数 定义了两个不同的对象   所以闭包函数不会受影响
         two(); //15
         two(); //20
 
         /********************************************************/
 
         //减少全局变量的定义，可以减少命名空间的污染
-        function fun4() {
+        function fun4() { //在函数内定义的变量 函数可以使用   闭包也可以访问    减少全局变量的定义
             var count = 0;
             return function() {
                 count++;
@@ -80,7 +84,7 @@
 
         ret = fun4();
         //每调用一次进行计数加1
-        console.log(ret());
+        console.log(ret()); //每次调用 都会记录上一次的变量   所以会 ++1
         console.log(ret());
         console.log(ret());
         console.log(ret());
@@ -92,12 +96,12 @@
             var btns = $("button");
             for (var i = 0; i < btns.length; i++) {
 
-                (function(i) {
+                (function(i) { //使用匿名函数
                     console.log("i = ", i);
-                    btns.eq(i).click(function() {
+                    btns.eq(i).click(function() { //函数每被调用一次 进行一次事件注册
                         console.log(i);
                     });
-                })(i);
+                })(i); //这里的 (i)  会对函数进行调用   for 没循环一次   进行一次调用传参
             }
         }
 

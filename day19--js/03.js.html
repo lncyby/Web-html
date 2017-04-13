@@ -1,52 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title></title>
 </head>
+
 <body>
 
-输入数据： <input class="age" type="text" name="age">
-<button id="btn">点击使用Number转换成数值</button>
-<button id="btn1">点击使用parseInt转换成数值</button>
-<button id="btn2">点击使用parseFloat转换成数值</button>
+	输入数据： <input class="age" type="text" name="age">
+	<button id="btn">点击使用Number转换成数值</button>
+	<button id="btn1">点击使用parseInt转换成数值</button>
+	<button id="btn2">点击使用parseFloat转换成数值</button>
 
-<script type="text/javascript">
-	
-/*	var a = 10;
-	console.log(a.toString());
-	console.log(a + "");
+	<script type="text/javascript">
+		/*	var a = 10;
+					console.log(a.toString());	//10
+					console.log(a + "");				//10
 
-	console.log(Boolean(a));
-	if (a){
-		console.log("----");
-	}
-*/
+					console.log(Boolean(a));   //true
+					if (a){
+						console.log("----");
+					}
+				*/
+		/*js 中有三个函数 可以吧非数值转换成数值
+		Number()
+		parseInt()
+		parseFloat()
+		Number() 可以用于任何数据类型,而另两个函数则专门用于把字符串转换成数值
+		parseInt() 函数在转换字符串时,更多的是看其是否符合数值模式。它会忽略字符串前面的空格,直至找到第一个非空格字符。如果第一个字符不是数字字符或者负号, parseInt()就会返回 NaN ;
+							 也就是说,用 parseInt() 转换空字符串会返回 NaN ( Number() 对空字符返回 0)。　
+							 如果第一个字符是数字字符, parseInt() 会继续解析第二个字符,直到解析完所有后续字符或者遇到了一个非数字字符。
+							 例如, “1234blue” 会被转换为 1234,因为 “blue” 会被完全忽略。类似地, “22.5”会被转换为 22,因为小数点并不是有效的数字字符。
+		parseFloat() 也是从第一个字符(位置 0)开始解析每个字符, 都按照十进制解析。而且也是一直解析到字符串末尾,或者解析到遇见一个无效的浮点数字字符为止。
+							也就是说,字符串中的第一个小数点是有效的,而第二个小数点就是无效的了,因此它后面的字符串将被忽略。　　　　
+		*/
 
-	var age = document.querySelector(".age");
-	var btn = document.querySelector("#btn");
+		var age = document.querySelector(".age");
+		var btn = document.querySelector("#btn");
 
-	btn.onclick = function(event){
-	/*数值转换*/
-		console.log(Number(age.value));
-	};
+		btn.onclick = function(event) {
+			/*数值转换*/
+			console.log(Number(age.value));
+		};
 
-	btn1.onclick = function(event){
-		/*数值转换*/
-		console.log("10进制",parseInt(age.value));
-		console.log("8进制",parseInt(age.value, 8));
-		console.log("2进制",parseInt(age.value, 2));
-		console.log("16进制",parseInt(age.value, 16));
-	};
+		btn1.onclick = function(event) {
+			/*数值转换*/
+			console.log("10进制", parseInt(age.value));
+			console.log("8进制", parseInt(age.value, 8));
+			console.log("2进制", parseInt(age.value, 2));
+			console.log("16进制", parseInt(age.value, 16));
+		};
 
-	btn2.onclick = function(event){
-		console.log("小数",parseFloat(age.value));
-	};
+		btn2.onclick = function(event) {
+			console.log("小数", parseFloat(age.value));
+		};
 
 
-	console.log(Number(false));
+		console.log(Number(false));
+	</script>
 
-</script>
-	
 </body>
+
 </html>

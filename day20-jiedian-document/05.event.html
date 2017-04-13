@@ -9,43 +9,70 @@
 <body>
     <button id="btn1">按钮1</button>
 
-     <form id="form" method="get" action="">
-     	 <input type="text" name="name">
-     	 <input type="submit" value="点击提交">
-     	 <input type="reset" value="点击重置">
-     </form>
+    <form id="form" method="get" action="">
+        <input type="text" name="name">
+        <input type="submit" value="点击提交">
+        <input type="reset" value="点击重置">
+    </form>
 
 
     <script src="./js/jquery-3.0.0.min.js"></script>
     <script type="text/javascript">
+        window.onload = function() {
+            //window.onload等整个页面的所有资源都加载完毕之后才能执行
+            var btn1 = document.getElementById("btn1");
+            //document.getElementById("id") 根据指定的id 属性值得到对象.
+            //返回id属性值等于sID的第一个对象的引用.假如对应的是一组对象,则返回
+            //改组对象中的第一个.如果无符合条件的对象,则返回null
+            //console.log(btn1);
+            // console.log($("#btn1")[0]); //将jQuery对象转换为原生DOM对象
 
-    window.onload = function() {
-        //等整个页面的所有资源都加载完毕之后才能执行
-        var btn1 = document.getElementById("btn1");
-        //console.log(btn1);
-        // console.log($("#btn1")[0]); //将jQuery对象转换为原生DOM对象
+            //DOM0
+            /*
+            事件处理四种方式：
+            1. HTML事件处理，即添加到HTML结构中
+                <button onclick="alert('hello');">按钮</button>
+            2. DOM0级的事件处理程序,把函数赋值给一个事件处理程序
+                obj.onclick = function(event){ ....};
+            3. DOM2级事件处理
+                obj.addEventListener("事件名", "事件处理函数", "布尔值")
+                    true 事件捕获方式
+                    false  事件冒泡
 
-        //DOM0
-        btn1.onclick = function(event) {
-            console.log("click 111");
+                obj.removeEventListener("事件名", "事件处理函数", "布尔值")
+
+            IE事件处理程序
+                obj.attachEvent("on事件名", "事件处理函数")
+                obj.detachEvent("on事件名", "事件处理函数")
+
+            */
+
+            // 获得结点
+            // document.getElementById(“id”) id 为标记的 #id
+            // document.getElementsByTagName(“div”) 所有的div div
+            // document.getElementsByClassName(“test”) 所有类名为 test
+
+            btn1.onclick = function(event) { //注册点击事件
+                console.log("click 111");
+            };
+
+
+            btn1.onclick = null; //删除注册的点击事件
+
+
+            var form = document.getElementById("form");
+            //在form 元素上 注册submit事件
+            //onsubmit 属性在提交表单时触发。onsubmit 属性只在 <form> 中使用。当表单提交时 会触发 sumbit事件
+            //添加在form元素上
+            form.onsubmit = function() {
+                console.log("触发submit。。。。");
+            };
+            //为 form表单注册 onreset事件
+            //onreset 事件 会在表单中的重置按钮被点击时发生
+            form.onreset = function() {
+                console.log("触发 reset 。。。");
+            };
         };
-
-
-        btn1.onclick = null;
-
-
-        var form = document.getElementById("form");
-
-        //添加在form元素上
-        form.onsubmit = function(){
-        	console.log("触发submit。。。。");
-        };
-
-        form.onreset = function(){
-        	console.log("触发 reset 。。。");
-        };
-    };
-
     </script>
 </body>
 

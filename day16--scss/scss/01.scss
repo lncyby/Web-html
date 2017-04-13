@@ -4,7 +4,7 @@
   变量的定义，使用
 */
 
-$fontSize: 50px  !default;
+$fontSize: 50px  !default;//!default  默认变量 通过以后的赋值会覆盖这个默认变量
 $fontSizeLittle: 20px;
 $lineHeight: 1.2;
 
@@ -14,19 +14,19 @@ $borderTopSet: 1px solid red;
 $color: red;
 
 h1 {
-	font-size: $fontSize;
-	color: $color;
+	font-size: $fontSize; //相当于 font-size: 50px;
+	color: $color;//相当于 color: red;
 }
 
 div {
-	font-size: $fontSizeLittle;
+	font-size: $fontSizeLittle;//相当于 font-size:20px;
 }
 
 .class-1 {
 
 	/*注意普通变量的使用特殊情况*/
-	//border-$borderDir: 1px solid red;
-	border-#{$borderDir}: $borderTopSet;
+	//border-$borderDir: 1px solid red;   注意: 这种 写法是错误的   特殊变量  必须 以 #{}格式 书写
+	border-#{$borderDir}: $borderTopSet;  //相当于  border-top: 1px solid red;
 
 	font: #{$fontSize}/#{$lineHeight};
 }

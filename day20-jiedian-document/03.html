@@ -7,6 +7,21 @@
 </head>
 
 <body>
+    <!-- <selsct></selsct>标签 用来创建下拉列表
+    <option></option>标签 用来定义 列表中的可用选项
+
+  selsct 元素是一种表单控件,可用于在表单中接受用户输入
+
+
+  属性                  属性值              描述
+  autofocusNew	      autofocus	        规定在页面加载时下拉列表自动获得焦点。
+  disabled	          disabled	        当该属性为 true 时，会禁用下拉列表。
+  formNew	            form_id	          定义 select 字段所属的一个或多个表单。
+  multiple	          multiple	        当该属性为 true 时，可选择多个选项。
+  name	              name	            定义下拉列表的名称。
+  requiredNew	        required	        规定用户在提交表单前必须选择一个下拉列表中的选项。
+  size	              number	          规定下拉列表中可见选项的数目。
+    -->
     <select name="" id="age">
         <option value="10">10</option>
         <option value="11">11</option>
@@ -15,15 +30,21 @@
     </select>
 
 
-    <script  src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
     <script type="text/javascript">
-    	
-    	$("#age").change(function(event){
-    		console.log($(this).val());
+        /*当元素的值被改变时,会触发 change事件.
+              该事件只作用在 text field ,以及 textarea 和 select 元素
 
-    		//width
-    		// position
-    	});
+              change()函数触发 change 事件, 或规定当发生change事件时运行的函数
+              注意: 当用于 select 元素时,change事件会在选择某个选项时发生,
+                    当用于 text field 或 text area 时, 该事件会在元素失去焦点时发生
+            */
+        $("#age").change(function(event) { //当触发 #age下的选项时 触发下列函数
+            console.log($(this).val()); //输出选项的 val 值
+
+            //width
+            // position
+        });
     </script>
 </body>
 

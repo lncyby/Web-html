@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>节点</title>
 </head>
 
 <body>
@@ -23,37 +23,44 @@
     </ul>
     <script src="./js/jquery-3.0.0.min.js"></script>
     <script type="text/javascript">
-    var f = document.getElementById("f");
-    /*
-     console.log(document.getElementsByTagName("li"));
-    console.log(document.getElementsByClassName("s"));
-    console.log($(".s"));
-    */
-    console.log(f.parentNode); //父节点
+        var f = document.getElementById("f");
+        /*
+         console.log(document.getElementsByTagName("li"));//获得li元素里面的内容
+        console.log(document.getElementsByClassName("s"));
+        console.log($(".s"));　　//效果 和 document.getElementsByTagName
+        */
+        console.log(f.parentNode); //父节点　　　.f 的父节点是 <body>...</body>
 
 
-    var s = document.getElementById("s");
-    var s1 = document.getElementById("s1");
+        var s = document.getElementById("s");
+        var s1 = document.getElementById("s1");
+
+        //获得 s 下面的节点    会将 文本也会当做节点 　f元素2222
+        console.log(s.nextSibling); //将文本也作为节点
+        // 获得 s 下面的节点   但 只有标签才会被当做节点    <div id="s1">这是s1</div>
+        console.log(s.nextElementSibling); //只有标签可以作为节点
+
+        console.log(f.children.length); //获得 f 里 的子节点    只有标签才算结点     2
+        console.log(f.childNodes.length); // 获得 f 里的 子节点    除了标签 文本也会被当做节点    5
 
 
-    console.log(s.nextSibling); //将文本也作为节点
-    console.log(s.nextElementSibling); //只有标签可以作为节点
+        //创建一个div标签
+        // var test = document.createElement("div");
+        // var test1 = document.createElement("span");
+        // 创建div节点和span节点
 
-    console.log(f.children.length);
-    console.log(f.childNodes.length);
-
-
-     //创建一个div标签
-    var test = document.createElement("div");
-    test.innerHTML = "新创建的div标签";
-
-    document.body.appendChild(test);
-    f.insertBefore(test,s1);// 在s1的前边添加test节点
-
-
-
-
-
+        /*
+        document.createElement() 是在对象中创建一个对象, 要与 appendChild()或insertBefore()方法
+        联合使用,
+        */
+        var test = document.createElement("div");
+        //innerHTML 属性设置或返回表格行的开始和结束标签之间的 HTML
+        //在这里的作用是将内容添加入新创建的标签中
+        test.innerHTML = "新创建的div标签";
+        //appendChild() 方法在节点的子节点列表末添加新的子节点
+        document.body.appendChild(test);
+        //insertBefore() 方法在节点的子节点列表任意位置插入新的节点。
+        f.insertBefore(test, s1); // 在s1的前边添加test节点
     </script>
 </body>
 

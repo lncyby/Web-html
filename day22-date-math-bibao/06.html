@@ -11,25 +11,29 @@
         function fun(n, o) {
             console.log('o = ', o);
             return {
-                fun: function(m) {
-                    return fun(m, n);
+                fun: function(m) { // 闭包函数 被写成 键值对 的形式  ,可以同过 键(fun) 来访问 值(function(m))
+                    return fun(m, n); //调用fun 函数(m 给上面的n,  n 给上面 的 o)
                 }
             };
         }
 
+        // fun(0);0
         var a = fun(0); //undefined
 
-        a.fun(1); // 0  a()  中的　() = .fun(1)   就是第一个return 后面的函数
+        a.fun(1); // 0  m = 1 a()  中的　() = .fun(1)   就是第一个return 后面的函数
         console.log(a);
-        a.fun(2); // 0
-        a.fun(3); // 0
+        a.fun(2); // 0  m = 2
+        a.fun(3); // 0  m = 3
 
 
+        //*****函数调用*闭包调用*闭包调用*闭包调用
         var b = fun(0).fun(1).fun(2).fun(3); //undefined  0  1  2
+        //******n = 0***m = 1***m = 2**m = 3
 
         var c = fun(0).fun(1); //undefined  0
-        c.fun(2); //1
-        c.fun(3); //1
+        //******n= 0*****m = 1
+        c.fun(2); //1    //m = 2
+        c.fun(3); //1    //m = 3
     </script>
 </body>
 

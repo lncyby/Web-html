@@ -9,15 +9,15 @@
 <body>
     <script type="text/javascript">
     function test(arg1, arg2) {
-        console.log("arg1 = ", arg1);
-        console.log("arg2 = ", arg2);
-        console.log("arguments.legnth = " + arguments.length);
+        console.log("arg1 = ", arg1);//10
+        console.log("arg2 = ", arg2);//20
+        console.log("arguments.legnth = " + arguments.length);//4  储存函数传过来的 实参
     }
 
     function test2() {
         console.log("arguments.legnth = " + arguments.length);
         for (var i = 0; i < arguments.length; i++) {
-            console.log(arguments[i]);
+            console.log(arguments[i]); //5
         }
     }
 
@@ -26,10 +26,16 @@
     test2(1, 2, 3, 4, 5);
 
     //arguments只能在函数中使用， console.log(arguments);
+    /*
+      arguments是存储了函数传送过过来实参,并且arguments对象只有函数开始时才可用。
+      arguments 对象只是与数组类似(它并不是 Array 的实例),因为可以使用方括号语法访
+      问它的每一个元素(即第一个元素是 arguments[0] ,第二个元素是 argumetns[1] ,以此类推),使
+      用 length 属性来确定传递进来多少个参数。
+
+    */
 
 
-
-
+    /*验证函数的变量提升*/
     var value = 10;
     function fun() {
     	/*
@@ -37,7 +43,7 @@
         var value = 20;
         */
        //等价代码：
-       var value;
+       var value; // 函数的变量提升   定义的变量会被提升   但是 为变量赋的值不会被提升 ,会在原位置不动
        console.log(value);
        value = 20;
 

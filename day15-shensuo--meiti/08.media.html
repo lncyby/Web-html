@@ -5,87 +5,114 @@
     <meta charset="UTF-8">
     <title>media媒体查询</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <!-- 需要在html文档中添加以上代码，用来兼容移动设备的显示效果
+         width=device-width:宽度等于当前设备的宽度
+         initial-scale=1：初始的缩放比例（默认为1）
+         maximum-scale=1：允许用户缩放到得最大比例（默认为1）
+         user-scalable=no：用户不能手动缩放
+  -->
     <style type="text/css">
-    * {
-        margin: 0;
-        padding: 0;
-    }
-    
-    body {
-        height: 100%;
-        font-size: 50px;
-    }
-    
-    .f {
-        background: blue;
-    }
-    
-    .s {
-        width: 1000px;
-        height: 200px;
-        background: red;
-        margin: auto;
-        margin-top: 50px;
-    }
-    
-    .h {
-        width: 1000px;
-        height: 200px;
-        background: blue;
-        margin: auto;
-        margin-top: 50px;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-
-    /* 500px < width < 1000px */    
-    @media all and (min-width:500px) and (max-width:1000px) {
         body {
-            color: green;
+            height: 100%;
+            font-size: 50px;
         }
-        div {
-            color: red;
-        }
+
         .f {
-            background: yellow;
+            background: blue;
         }
-    }
 
-
-
-
-    /*  width < 600px   或者  width > 900px*/
-    /* 只有and ,not 没有 or*/
-    
-    @media screen and (max-width: 600px) {
         .s {
-            width: 80%;
-            color: yellow;
+            width: 1000px;
+            height: 200px;
+            background: red;
+            margin: auto;
+            margin-top: 50px;
         }
-    }
-    
-    @media screen and (min-width: 900px) {
-        .s {
-            width: 80%;
-            color: yellow;
-        }
-    }
 
-
-
-    /* height < 500px*/    
-    @media screen and (max-height: 500px) {
         .h {
-            background: pink;
-            color: gray;
+            width: 1000px;
+            height: 200px;
+            background: blue;
+            margin: auto;
+            margin-top: 50px;
         }
-    }
-    
-    @media screen and (max-height: 300px) {
-        .h {
-            background: purple;
-            color: yellow;
+        /*t添加媒体查询样式*/
+        /*指定样式表规则用于指定的设备类型。*/
+        /* 500px < width < 1000px */
+
+        @media all and (min-width:500px) and (max-width:1000px) {
+            /*屏幕在500px--1000px之间时,会有下面样式*/
+            body {
+                color: green;
+            }
+            div {
+                color: red;
+            }
+            .f {
+                background: yellow;
+            }
         }
-    }
+        /*
+        @media only screen and
+
+        only(限定某种设备)
+        screen 是媒体类型里的一种
+        and 被称为关键字，其他关键字还包括 not(排除某种设备)
+
+    常用类型
+        类型 解释
+        all 所有设备
+        braille 盲文
+        embossed 盲文打印
+        handheld 手持设备
+        print 文档打印或打印预览模式
+        projection 项目演示，比如幻灯
+        screen 彩色电脑屏幕
+        speech 演讲
+        tty 固定字母间距的网格的媒体，比如电传打字机
+        tv 电视
+
+        */
+        /*  width < 600px   或者  width > 900px*/
+        /* 只有and ,not 没有 or*/
+
+        @media screen and (max-width: 600px) {
+            /*屏幕尺寸小于600px时 有以下样式*/
+            .s {
+                width: 80%;
+                color: yellow;
+            }
+        }
+
+        @media screen and (min-width: 900px) {
+            /*屏幕大于900px时,有以下样式*/
+            .s {
+                width: 80%;
+                color: yellow;
+            }
+        }
+        /* height < 500px*/
+
+        @media screen and (max-height: 500px) {
+            /*屏幕高度小于500px时,有以下样式*/
+            .h {
+                background: pink;
+                color: gray;
+            }
+        }
+
+        @media screen and (max-height: 300px) {
+            /*屏幕高度小于300px时有以下样式*/
+            .h {
+                background: purple;
+                color: yellow;
+            }
+        }
     </style>
 </head>
 

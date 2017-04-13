@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>flex grow</title>
@@ -21,14 +22,13 @@
 			width: 100%;
 			height: 200px;
 			border: 1px solid lightblue;
-
 			margin: auto;
 			margin-top: 50px;
-
 			display: flex;
+			/*定义伸缩盒子,子元素会自动填充容器,不会超出父盒子范围*/
 		}
 
-		.f > li {
+		.f>li {
 			width: 250px;
 			height: 150px;
 			text-align: center;
@@ -37,37 +37,40 @@
 			border: 1px solid red;
 		}
 
-
-		.f:nth-child(1) > li:nth-child(2) {
+		.f:nth-child(1)>li:nth-child(2) {
 			flex-grow: 2;
+			/*定义子元素的扩展比例,在父盒子中 扩充的比例,默认为"1"*/
 		}
 
-		.f:nth-child(1) > li:nth-child(3) {
+		.f:nth-child(1)>li:nth-child(3) {
 			flex-grow: 3;
+			/*所占扩充比例为"3"*/
 		}
-
 	</style>
 </head>
+
 <body>
 
 
-<h1>flex-grow 设置扩展比例</h1>
+	<h1>flex-grow 设置扩展比例</h1>
 
 
-<!-- 
+	<!--
+		扩展比例算法:
+	  只要有元素设置了扩展比例,那么没有设置扩展比例的兄弟元素默认扩展比例 flex-grow:1;
     屏幕：1366px
     4 * li = 4 * 250 = 1000px;
     1366 - 1000 = 366px;
-
+		1+1+2+3=7
     366/ 7 = xxxx;
  -->
-<ul class="f">
-	<li>1</li>
-	<li>2</li>
-	<li>3</li>
-	<li>4</li>
-</ul>
-	
+	<ul class="f">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+
 
 
 
@@ -76,4 +79,5 @@
 
 
 </body>
+
 </html>
