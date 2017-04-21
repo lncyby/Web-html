@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>地理定位</title>
+</head>
+
+<body>
+
+	<script type="text/javascript">
+		// 地理位置 API 允许用户向 Web 应用程序提供他们的位置。出于隐私考虑，报告地理位置前会先请求用户许可。
+		// 使用定位功能需要使用浏览器的navigator.geolocation对象，所以需要检测浏览器是否支持该对象操作。
+		if (navigator.geolocation) {
+			console.log("支持地理定位");
+		} else {
+			console.log("您的浏览器不支持地理定位");
+		}
+
+		function success(pos) {
+			var coords = pos.coords;
+			//longitude：经度　　　latitude：纬度
+			console.log("经度" + coords.longitude + ",纬度" + coords.latitude);
+		}
+
+		function error(err) {
+			console.log(err.message + "   " + err.code);
+		}
+
+
+		navigator.geolocation.getCurrentPosition(success, error);
+	</script>
+
+</body>
+
+</html>

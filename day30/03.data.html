@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>drag 拖拽</title>
+	<style type="text/css">
+		.f {
+			width: 500px;
+			height: 500px;
+			border: 1px solid red;
+		}
+	</style>
+</head>
+
+<body>
+
+
+
+	<img id="img" draggable="true" src="./image/zhaosi.jpg">
+
+	<div id="box" class="f"></div>
+
+	<script type="text/javascript">
+		var box = document.querySelector("#box");
+		var img = document.querySelector("#img");
+
+		// 当用户开始拖动一个元素或者一个选择文本的时候 dragstart 事件就会触发
+		img.addEventListener("dragstart", function(event) {
+			console.log("dragstart ...");
+
+			// 在进行拖放操作时，DataTransfer 对象用来保存被拖动的数据。
+			// 它可以保存一项或多项数据、一种或者多种数据类型。
+			//设置要传递的数据
+			event.dataTransfer.setData("name", "lisi");
+		}, false);
+
+
+		// dragover事件时触发一个元素或文本选择被拖在一个有效的目标(每隔几百毫秒)
+		box.addEventListener("dragover", function(event) {
+			//preventDefault阻止一个事件的默认行为
+			event.preventDefault();
+		}, false);
+
+
+		// drop事件时触发一个元素或文本选择是掉在一个有效的目标。
+		box.addEventListener("drop", function(event) {
+			//完成拖拽
+			box.appendChild(img);
+
+			//获得传递过来的数据
+			console.log(event.dataTransfer.getData("name"));
+		}, false);
+	</script>
+
+</body>
+
+</html>

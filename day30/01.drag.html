@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>drag 拖拽</title>
+	<style type="text/css">
+		.f {
+			width: 500px;
+			height: 500px;
+			border: 1px solid red;
+		}
+	</style>
+</head>
+
+<body>
+
+	<a id="a" href="https://www.baidu.com">百度</a>
+	<!-- 为所需拖拽的元素设置属性 draggable属性 正确的用法是 label draggable="true" -->
+	<img id="img" draggable="true" src="./image/zhaosi.jpg">
+
+	<div id="box" class="f"></div>
+
+	<script type="text/javascript">
+		var a = document.querySelector("#a");
+		a.onclick = function(event) {
+			//preventDefault阻止一个事件的默认行为
+			event.preventDefault();
+		}
+
+
+
+		var box = document.querySelector("#box");
+		var img = document.querySelector("#img");
+
+		//drag开始
+		/*	img.addEventListener("dragstart", function(){
+		// 当用户开始拖动一个元素或者一个选择文本的时候 dragstart 事件就会触发
+				console.log("dragstart ...");
+			}, false);
+
+			img.addEventListener("drag", function(){
+			// drag的过程中不断触发，间隔几百毫秒触发一次
+			// 当元素或者选择的文本被拖动时触发 drag 事件 (每几百毫秒)
+				console.log("drag ...");
+			}, false);
+
+			//drag结束时触发
+			img.addEventListener("dragend", function(){
+			// 拖动结束事件触发一个拖动操作结束时(通过释放鼠标按钮或按escape键)
+				console.log("dragend...");
+			}, false);
+
+			// dragenter事件时触发一个拖拽元素或文本选择进入一个有效的目标。
+			box.addEventListener("dragenter", function(){
+				this.style.borderColor = "blue";
+			}, false);
+			// dragleave事件时触发一个拖拽元素或文本选择留下一个有效的目标。
+			box.addEventListener("dragleave", function(){
+				this.style.borderColor = "yellow";
+			}, false);*/
+
+
+		// dragover事件时触发一个元素或文本选择被拖在一个有效的目标(每隔几百毫秒)
+		//要让一个元素完成拖拽，那么必须在dragover事件中阻止其默认行为
+		box.addEventListener("dragover", function(event) {
+			// console.log("dragover ...");
+			//组织默认行为
+			event.preventDefault();
+		}, false);
+		// drop事件时触发一个元素或文本选择是掉在一个有效的目标。
+		box.addEventListener("drop", function() {
+			console.log("drop ...");
+
+			//完成拖拽
+			box.appendChild(img);
+		}, false);
+	</script>
+
+</body>
+
+</html>
